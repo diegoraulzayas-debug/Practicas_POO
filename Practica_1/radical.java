@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class radical {
 	public static void main(String[] args) {
 		
 		Scanner open = new Scanner(System.in);
