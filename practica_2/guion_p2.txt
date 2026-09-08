@@ -1,0 +1,130 @@
+Guión de Video — Práctica 2: LLMs y Estructuras de Control en Java (POO) 
+Duración total objetivo: 4:25 min (con margen para no exceder los 5:00 
+min)
+Roles: Redactor · Editor · Modelos (algoritmos) · Desarrollador · 
+Narrador (mayor participación) 
+Nota de producción: los tiempos son orientativos por escena. El Editor puede ajustar ±3-5 seg por corte sin 
+comprometer el límite de 5 minutos. Se recomienda grabar cada bloque por 
+separado para facilitar la edición.
+
+1 - Apertura por Narrador 15 segundos
+2- Introducción y objetivos por Narrador 20 segundos
+3- Marco Teórico por Narrador 25 segundos
+4- Análisis de la respuesta LLM por Modelos 40 segundos
+5- Diagrama de flujo del ejercicio 1 por Modelos 40 segundos
+6- Código ejercicio 2, número mayor por Desarrollador 35 segundos
+7- Diagrama de flujo ejercicio 2 por Redactor 20 segundos
+8- Código ejercicio 3, tabla de multiplicaciones por Editor 30 segundos
+9- Diagrama de flujo ejercicio 3 por Desarrollador 20 segundos
+10- Resultados / demos en consola por Narrador 20 segundos
+11- Conclusiones por Narrador 15 segundos
+12- Cierre por Narrador 10 segundos
+
+Total: 4:25 segundos 
+
+Guión->
+
+1.- Apertura:
+
+"¡Hola! Somos el equipo del Grupo 7 y este es nuestro video de la Práctica 
+2 de Programación Orientada a Objetos: análisis derespuestas de distintas 
+LLM y dos ejercicios resueltos en Java. Vamos a explicarles todo el 
+proceso."
+
+2.- Introducción y objetivos:
+
+"En esta práctica analizamos cómo tres LLM distintas resolvían el mismo 
+problema de aprobados y reprobados entre diez alumnos. Además, resolvimos 
+dos ejercicios adicionales: encontrar el número mayor entre diez valores 
+ingresados por el usuario, y generar una tabla de multiplicaciones a 
+partir de un número N. El objetivo era comparar la solución de la LLM 
+contra la del profesor y reforzar el uso de estructuras de control en 
+Java."
+
+3.- Marco teórico:
+
+"El proyecto combina varios conceptos clave: estructuras condicionales 
+como if e if-else ; ciclos while , y for para repetir instrucciones; la 
+clase do-while Scanner para leer \t para dar formato tabular a la salida. 
+También vimos que la forma en que se redacta un prompt influye 
+directamente en la solución que entrega una LLM, sobre todo cuando el 
+planteamiento no especifica todos los datos."
+
+4.- Análisis de las respuestas de la LLM:
+
+"Yo analicé las respuestas de las tres LLM para el Ejercicio 1. Al 
+indicarle a una de ellas que usara un paradigma orientado a objetos, nos 
+devolvió un código muy similar al del profesor.Otra llevaba un contador de 
+aprobados y reprobados, y validaba que se ingresaran exactamente diez 
+calificaciones. Y noten la diferencia entre las dos últimas: una contaba 
+aprobados y reprobados por separado, mientras que la otra solo le daba 
+importancia a los reprobados para decidir si se otorgaba la bonificación. 
+Una de las decisiones más interesantes fue que el modelo asumió, por su 
+cuenta, que una calificación mayor o igual a 6 significa aprobado, aunque 
+eso no estaba especificado en el planteamiento original. Con diez 
+aprobados, o con nueve aprobados y uno reprobado, se muestra felicitación 
+y bonificación; con ocho aprobados y dos reprobados, solo felicitación; y 
+si todos reprueban, el mensaje cambia por completo."
+
+5.- Diagrama de flujo del ejercicio 1:
+
+"Este es el diagrama de flujo que resume esa lógica: se inicializa el 
+contador de reprobados, se repite diez veces la solicitud de calificación, 
+se evalúa si es menor a 6 para incrementar el contador, y al final se 
+compara si los reprobados son uno o menos para decidir si se otorga el 
+bono al tutor."
+
+6.- Código ejercicio 2, numero mayor:
+
+"Yo me encargué del Ejercicio 2. Creamos la clase Mayor y usamos tres 
+variables: cont para contar cuántos números llevamos, num para guardar el 
+número que se acaba de ingresar, y mayor para guardar el más grande 
+encontrado hasta el momento. Con un ciclo while , pedimos números mientras 
+cont sea menor que diez. Si el usuario ingresa unnúmero negativo, lo 
+convertimos a valor absoluto multiplicándolo por menos uno, para comparar 
+solo con valores positivos, y si el número ingresado supera a actualizamos 
+su valor. Al terminar las diez iteraciones, mostramos el resultado y 
+cerramos el mayor , Scanner ."
+
+7.- Diagrama de flujo ejercicio 2:
+
+"En el diagrama de flujo se ve claramente ese ciclo: mientras no se hayan 
+ingresado los diez números positivos, se sigue pidiendo el siguiente valor 
+y comparándolo contra el mayor actual. Al salir del ciclo, el programa 
+despliega el mensaje final indicando cuál fue el número mayor."
+
+8.- Ejercicio 3, tabla de multiplicaciones:
+
+"Para el Ejercicio 3 creamos la clase Tabla. 
+Aquí no Scanner , porque los valores están definidos en el propio 
+programa. Primero imprimimos un encabezado con las columnas N, 10N, 100N y 
+1000N separadas por tabulaciones. Luego usamos un ciclo for donde N va de 
+1 a 5, y en cada vuelta calculamos e imprimimos el valor de N multiplicado 
+por 10, 100 y 1000, con \t para mantener las columnas alineadas
+
+9.- Diagrama de flujo del Ejercicio 3:
+"El diagrama muestra ese flujo: se 
+declara la variable N en 1, se imprime el encabezado, y mientras N sea 
+menor que 6 se calculan y muestran sus tres múltiplos antes de incrementar 
+N en uno, hasta llegar al quinto renglón de la tabla."
+
+10.- Resultados/demo consola:
+
+"Aquí pueden ver ambos programas en acción. En el Ejercicio 2, al ingresar 
+−5, 12, 7, −20, 3, 15, 8, −2, 10 y 6, el programa toma sus valores 
+absolutos y nos regresa que el número mayor es 20. En el Ejercicio 3, la 
+tabla se genera automáticamente del 1 al 5, mostrando N, 10N, 100N y 1000N 
+en cada renglón."
+
+11.- Conclusiones:
+
+"Con esta práctica comprobamos que entre más específico es el 
+requerimiento que le damos a una LLM, más acertada es su solución, aunque 
+siempre puede asumir criterios no especificados. También reforzamos el 
+manejo de ciclos, condicionales y entrada y salida de datos en Java, 
+comparando nuestra implementación contra la solución de referencia del 
+profesor."
+
+12.- Cierre:
+*Despedida casual*
+
