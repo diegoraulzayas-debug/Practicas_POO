@@ -7,6 +7,11 @@ public class Palindromo {
         
         System.out.println("Ingresa un numero entero de 5 digitos:");
         int num = sc.nextInt();
+
+        if (num<0) {
+            num=num*(-1);
+            
+        }
         
         
         while (num < 10000 || num > 99999) {
