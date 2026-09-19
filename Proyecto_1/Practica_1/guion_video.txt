@@ -1,0 +1,79 @@
+Guión de Video — Práctica 1:
+Calculadora en Java (POO)
+
+Duración total objetivo: 4:25 min (con margen para no exceder los 5:00 min)
+Roles: Desarrollador · Redactor · Editor · Modelos (algoritmos) · Presentador · Narrador (mayor participación)
+
+Tabla de tiempos
+# Escena | Responsable(s) | Duración | Acumulado
+1 | Apertura | Presentador | 0:10 | 0:10
+2 | Introducción y objetivos | Narrador | 0:20 | 0:30
+3 | Marco teórico | Narrador | 0:25 | 0:55
+4 | Análisis de las respuestas de la LLM (Paint) | Narrador | 0:35 | 1:30
+5 | Diagrama de flujo de la calculadora | Narrador | 0:15 | 1:45
+6 | Código: Suma y Resta | Desarrollador | 0:25 | 2:10
+7 | Código: Módulo | Redactor | 0:20 | 2:30
+8 | Código: Multiplicación y División | Editor | 0:25 | 2:55
+9 | Código: Potencia | Modelos | 0:20 | 3:15
+10 | Código: Raíz | Narrador | 0:20 | 3:35
+11 | Resultados / demo en consola | Presentador | 0:20 | 3:55
+12 | Conclusiones | Narrador | 0:20 | 4:15
+13 | Cierre | Presentador | 0:10 | 4:25
+
+
+Guión completo
+
+1. Apertura — Presentador (0:10)
+(Cámara al frente, sonrisa, tono directo)
+"¡Hola! Somos el equipo del Grupo 7 y este es nuestro video de la Práctica 1 de Programación Orientada a Objetos: análisis de respuestas de una LLM y una calculadora funcional en Java. Vamos a explicarles todo el proceso."
+
+2. Introducción y objetivos — Narrador (0:20)
+"En esta práctica le pedimos a una LLM soluciones para un reto: un editor de dibujo básico tipo Paint con interfaz gráfica en Java. El objetivo era analizar las respuestas de una LLM frente a requerimientos estructurados de programación orientada a objetos."
+
+3. Marco teórico — Narrador (0:25)
+(Se pueden mostrar en pantalla íconos o texto de apoyo: Math.pow, Scanner, do-while, switch)
+"El proyecto combina varios conceptos clave: el uso de Math.pow para potencias y raíces con exponentes fraccionarios; estructuras de control como do-while y switch-case; la clase Scanner para leer datos desde consola; y, para el editor gráfico, conceptos de herencia y polimorfismo con una clase abstracta Figura, además del manejo de eventos de ratón con MouseListener y el uso de JFrame, JPanel y Graphics de Swing y AWT."
+
+4. Análisis de las respuestas de la LLM — Narrador (0:35)
+(Mostrar en pantalla capturas de las tres respuestas — Figura 2 y Figura 6 del reporte)
+"Le pedimos a la LLM tres soluciones distintas para el Paint. La primera se enfocó en la teoría de eventos con Swing y AWT, pero no guardaba historial de figuras, así que al redibujar se perdía todo lo anterior. La segunda entregó un programa funcional usando un ArrayList para guardar el historial, con función de deshacer, pero rompía las reglas del polimorfismo al usar un solo switch para decidir qué figura dibujar. La tercera fue la más teórica: propuso una clase abstracta Figura con subclases como Circulo, aplicando polimorfismo real con el método dibujar() y @Override, aunque no implementaba los eventos del ratón. La conclusión es que la solución ideal combina la arquitectura de la tercera respuesta con la lógica de eventos de la segunda."
+
+5. Diagrama de flujo de la calculadora — Narrador (0:15)
+(Mostrar el diagrama de flujo completo en pantalla)
+"Antes de ver el código, este es el diagrama de flujo que diseñamos: comienza declarando las variables, despliega el menú, valida la opción elegida y, según el caso, ejecuta la operación correspondiente hasta que el usuario decide salir."
+
+6. Código: Suma y Resta — Desarrollador (0:25) 
+(Mostrar en pantalla el bloque case 1 y case 2)
+"En el caso 1, simplemente sumamos num1 más num2 y mostramos el resultado. En el caso 2 fue un poco más interesante: le preguntamos al usuario qué resta quiere hacer, num1 num2 o num2 - num1, usando un if-else sobre la variable resta, para darle flexibilidad sin importar el orden en que ingresó los números."
+
+7. Código: Módulo — Redactor (0:20)
+(Mostrar en pantalla el case 7)
+"Primero validamos que num2 no sea cero para evitar un error de ejecución. Si es válido, calculamos r1 como la división entera, convertida a int, y r2 con el operador %, que nos da el residuo. Así mostramos tanto el cociente entero como el resto de la división."
+
+8. Código: Multiplicación y División — Editor (0:25) 
+(Mostrar en pantalla case 3 y case 4)
+"La multiplicación es directa: num1 * num2. La división requiere más cuidado, porque hay que validar que num2 sea distinto de cero antes de dividir; si no, imprimimos un mensaje de error en lugar de intentar la operación, para que el programa no se rompa."
+
+9. Código: Potencia — Modelos (0:20) 
+(Mostrar en pantalla el case 5)
+"Yo expliqué la potencia. Usamos el método Math.pow(num1, num2) de la clase Math, que devuelve un double. Como nuestras variables son float, hacemos un casting explícito con (float) antes de asignar el resultado, para no perder precisión de forma inesperada."
+
+10. Código: Raíz — Narrador (0:20)
+(Mostrar en pantalla el case 6)
+"Y para cerrar el código, la raíz. Aplicamos la propiedad matemática de que la raíz de índice n equivale a elevar el número a 1/n. Por eso usamos Math.pow(num1, 1.0 / num2). Es clave escribir 1.0 y no 1, porque en Java la división entre enteros se trunca, y eso nos daría siempre cero."
+
+11. Resultados / demo en consola — Presentador (0:20)
+(Mostrar en pantalla la Figura 1: ejecución real del menú y una operación)
+"Aquí pueden ver el programa en acción: el menú se despliega, elegimos una operación, ingresamos los números y obtenemos el resultado de inmediato. Y al terminar, el ciclo nos regresa al menú hasta que decidimos salir."
+
+12. Conclusiones — Narrador (0:20)
+"Con esta práctica comprobamos que entre más específico es el requerimiento que le damos a una LLM, mejores y más acertadas son sus soluciones. También confirmamos que el éxito de la calculadora depende de entender bien las estructuras de control y el funcionamiento de la clase Math, más que de simplemente copiar código generado."
+
+13. Cierre — Presentador (0:10)
+"Eso fue todo por parte del equipo del Grupo 7. ¡Gracias por ver nuestro video!"
+
+Notas para el Editor
+- Insertar en pantalla las figuras del reporte en los momentos indicados (Figura 1 en la escena 11, Figuras 3-5 en la escena 5, Figura 2 y 6 en la escena 4).
+- Usar corte a cámara del integrante correspondiente en cada bloque de código (escenas 6-10) para que quede claro quién explica qué parte.
+- Mantener transiciones cortas (≤1 seg) entre escenas para no perder tiempo del límite de 5 minutos.
+- El Narrador puede grabar sus partes seguidas y luego el Editor las intercala con las cámaras de cada integrante y las capturas de pantalla.
