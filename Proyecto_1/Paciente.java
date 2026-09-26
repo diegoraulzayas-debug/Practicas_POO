@@ -1,49 +1,47 @@
 public class Paciente {
-    // Atributos
-     String nombre;
-     String apellidos; 
-     String especialidadAtencion;
 
-    // Mecanismos para determinar si está en consulta o en tratamiento (Restricción del PDF)
-     boolean estaEnConsulta;
-     boolean estaEnTratamiento;
+    String nombre;
+    String apellidos;
+    String especialidadAtencion;
 
-    // Constructor
+    boolean estaEnConsulta;
+    boolean estaEnTratamiento;
+
     public Paciente(String nombre, String apellidos, String especialidadAtencion) {
-        // TODO: Inicializar atributos
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.especialidadAtencion = especialidadAtencion;
         this.estaEnConsulta = false;
         this.estaEnTratamiento = false;
     }
 
-    // Comportamientos (Métodos)
     public void registroEnSistema(Sistema sistema) {
-        // TODO: Implementar lógica
+        sistema.registroPaciente(this);
+        System.out.println(nombre + " " + apellidos + " registrado en el sistema.");
     }
 
     public void solicitarConsulta() {
-        // TODO: Implementar lógica
+
+        if (!estaEnConsulta && !estaEnTratamiento) {
+            estaEnConsulta = true;
+
+            System.out.println(nombre + " " + apellidos + " solicitó consulta de " + especialidadAtencion + ".");
+        } else {
+            System.out.println(nombre + " " + apellidos + " no puede solicitar consulta.");
+        }
     }
 
     public void verTratamiento() {
-        // TODO: Implementar lógica
+
+        if (estaEnTratamiento) {
+            System.out.println(nombre + " " + apellidos + " se encuentra en tratamiento de " + especialidadAtencion + ".");
+        } else {
+            System.out.println(nombre + " " + apellidos + " no se encuentra en tratamiento.");
+        }
     }
 
-    // Getters y Setters sugeridos para controlar los estados
-    public boolean isEstaEnConsulta() {
-        return estaEnConsulta;
+    public void pasarATratamiento() {
+        estaEnConsulta = false;
+        estaEnTratamiento = true;
     }
-
-    public void setEstaEnConsulta(boolean estaEnConsulta) {
-        this.estaEnConsulta = estaEnConsulta;
-    }
-
-    public boolean isEstaEnTratamiento() {
-        return estaEnTratamiento;
-    }
-
-    public void setEstaEnTratamiento(boolean estaEnTratamiento) {
-        this.estaEnTratamiento = estaEnTratamiento;
-    }
-
-    // TODO: Agregar Getters adicionales para nombre, apellidos y especialidad
 }
