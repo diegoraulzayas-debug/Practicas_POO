@@ -13,9 +13,9 @@ public class Sistema {
         this.nombreHospital = nombreHospital;
         this.medicos = new Medico[50];
         this.noMedicos = 0;
-        this.enfermeros = new Enfermero[100]; // Ahora 100 enfermeros
+        this.enfermeros = new Enfermero[50];
         this.noEnfermeros = 0;
-        this.pacientes = new Paciente[10]; // Empieza en 10, pero crecerá dinámicamente
+        this.pacientes = new Paciente[100];
         this.noPacientes = 0;
     }
 
@@ -24,9 +24,9 @@ public class Sistema {
         this.nombreHospital = "Hospital General";
         this.medicos = new Medico[50];
         this.noMedicos = 0;
-        this.enfermeros = new Enfermero[100]; // Ahora 100 enfermeros
+        this.enfermeros = new Enfermero[50];
         this.noEnfermeros = 0;
-        this.pacientes = new Paciente[10]; // Empieza en 10, pero crecerá dinámicamente
+        this.pacientes = new Paciente[100];
         this.noPacientes = 0;
     }
 
@@ -40,7 +40,7 @@ public class Sistema {
     }
 
     public void registrarEnfermero(Enfermero enfermero) {
-        if (enfermero != null && this.noEnfermeros < 100) {
+        if (enfermero != null && this.noEnfermeros < 50) {
             this.enfermeros[this.noEnfermeros] = enfermero;
             this.noEnfermeros++;
             System.out.println("Enfermero " + enfermero.nombre + " registrado exitosamente en el sistema.");
@@ -48,15 +48,7 @@ public class Sistema {
     }
 
     public void registrarPaciente(Paciente paciente) {
-        if (paciente != null) {
-            // Si el arreglo está lleno, lo hacemos crecer al doble de su tamaño
-            if (this.noPacientes == this.pacientes.length) {
-                Paciente[] nuevoArreglo = new Paciente[this.pacientes.length * 2];
-                for (int i = 0; i < this.pacientes.length; i++) {
-                    nuevoArreglo[i] = this.pacientes[i];
-                }
-                this.pacientes = nuevoArreglo; // Reemplazamos el arreglo viejo por el nuevo más grande
-            }
+        if (paciente != null && this.noPacientes < 100) {
             this.pacientes[this.noPacientes] = paciente;
             this.noPacientes++;
             System.out.println("Paciente " + paciente.nombre + " registrado exitosamente en el sistema.");
