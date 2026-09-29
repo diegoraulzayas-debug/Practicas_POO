@@ -1,4 +1,4 @@
-import java.util.Scanner;
+﻿import java.util.Scanner;
 
 public class MainFecha {
 
@@ -17,10 +17,10 @@ public class MainFecha {
         int anio = entrada.nextInt();
 
         // Crear un objeto Fecha
-        Fecha fecha1 = new Fecha(mes, dia, anio);
+        Fecha fecha1 = new Fecha(dia, mes, anio);
 
         // Mostrar fecha
-        System.out.println("Fecha ingresada");
+        System.out.println("Fecha ingresada:");
         fecha1.mostrarFecha();
 
         // Modificar la fecha

@@ -1,24 +1,24 @@
-public class Fecha {
+﻿public class Fecha {
 
     // Atributos
-    private int mes;
     private int dia;
+    private int mes;
     private int anio;
 
     // Constructor
-    public Fecha(int mes, int dia, int anio) {
-        this.mes = mes;
+    public Fecha(int dia, int mes, int anio) {
         this.dia = dia;
+        this.mes = mes;
         this.anio = anio;
     }
 
     // Getters
-    public int getMes() {
-        return mes;
-    }
-
     public int getDia() {
         return dia;
+    }
+
+    public int getMes() {
+        return mes;
     }
 
     public int getAnio() {
@@ -26,12 +26,12 @@ public class Fecha {
     }
 
     // Setters
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-
     public void setDia(int dia) {
         this.dia = dia;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 
     public void setAnio(int anio) {
