@@ -9,7 +9,7 @@ public class Empleado {
     public Empleado(String nombre, String apellido, double salarioMensual) {
         this.nombre = nombre;
         this.apellido = apellido;
-        setSalarioMensual(salarioMensual);
+        this.salarioMensual = salarioMensual;
     }
 
     // Métodos modificadores
