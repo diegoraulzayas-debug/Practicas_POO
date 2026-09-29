@@ -9,7 +9,15 @@ public class Empleado {
     public Empleado(String nombre, String apellido, double salarioMensual) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.salarioMensual = salarioMensual;
+        this.salarioMensual = validarSalario(salarioMensual);
+    }
+
+    // Método para validar salario
+    public double validarSalario(double salario) {
+        if (salario < 0) {
+            return 0;
+        }
+        return salario;
     }
 
     // Métodos modificadores
