@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"mx.unam.fi.die.poo.g7.practicas.practica2","l":"Mayor"},{"p":"mx.unam.fi.die.poo.g7.practicas.practica2","l":"Tabla"}];updateSearchResults();

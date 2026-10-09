@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"mx.unam.fi.die.poo.g7.practicas.practica3","c":"Palindromo","l":"esPalindromo(int)"},{"p":"mx.unam.fi.die.poo.g7.practicas.practica3","c":"Palindromo","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"mx.unam.fi.die.poo.g7.practicas.practica3","c":"Palindromo","l":"Palindromo()","u":"%3Cinit%3E()"}];updateSearchResults();

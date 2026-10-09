@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"mx.unam.fi.die.poo.g7.practicas.practica1","l":"Practica_1"},{"p":"mx.unam.fi.die.poo.g7.practicas.practica1","l":"radical"}];updateSearchResults();
