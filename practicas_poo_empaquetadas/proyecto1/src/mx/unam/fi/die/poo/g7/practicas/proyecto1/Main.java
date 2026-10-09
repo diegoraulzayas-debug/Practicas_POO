@@ -2,8 +2,28 @@ package mx.unam.fi.die.poo.g7.practicas.proyecto1;
 
 import java.util.Scanner;
 
+/**
+ * Clase principal que gestiona la ejecucion del Sistema de Gestion Hospitalaria (Proyecto 1).
+ * Presenta la interfaz de consola interactiva con menus dedicados para medicos,
+ * enfermeros y pacientes.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class Main {
 
+    /**
+     * Constructor por defecto de la clase Main.
+     */
+    public Main() {
+    }
+
+    /**
+     * Punto de entrada principal de la aplicacion hospitalaria.
+     * Despliega el menu principal y coordina la navegacion entre los modulos.
+     *
+     * @param args Argumentos de la linea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
         Sistema hospital = new Sistema("Hospital Central Universitario");
         Scanner scanner = new Scanner(System.in);
@@ -45,6 +65,13 @@ public class Main {
     }
 
     // Menu interactivo de Medico
+    /**
+     * Gestiona el menu interactivo de opciones y operaciones de los medicos,
+     * tales como registro, solicitud de pacientes, consultas, recetas y listado ordenado.
+     *
+     * @param hospital Instancia del sistema hospitalario activo.
+     * @param scanner Lector para recepcion de datos del usuario por consola.
+     */
     public static void menuMedico(Sistema hospital, Scanner scanner) {
         int opcion = 0;
         do {
@@ -173,6 +200,13 @@ public class Main {
     }
 
     // Menu interactivo de Enfermero
+    /**
+     * Gestiona el menu interactivo de operaciones para el personal de enfermeria,
+     * permitiendo el registro, la administracion de medicamentos y la revision de pacientes ordenados.
+     *
+     * @param hospital Instancia del sistema hospitalario activo.
+     * @param scanner Lector para recepcion de datos del usuario por consola.
+     */
     public static void menuEnfermero(Sistema hospital, Scanner scanner) {
         int opcion = 0;
         do {
@@ -253,6 +287,14 @@ public class Main {
     }
 
     // Menu interactivo de Paciente
+    /**
+     * Gestiona el menu interactivo de opciones para pacientes, permitiendo su registro,
+     * asignacion a personal medico o de enfermeria, solicitud automatica de consulta
+     * y revision del estado de tratamiento.
+     *
+     * @param hospital Instancia del sistema hospitalario activo.
+     * @param scanner Lector para recepcion de datos del usuario por consola.
+     */
     public static void menuPaciente(Sistema hospital, Scanner scanner) {
         int opcion = 0;
         do {

@@ -1,15 +1,40 @@
 package mx.unam.fi.die.poo.g7.practicas.proyecto1;
 
+/**
+ * Representa a un medico dentro del sistema hospitalario.
+ * Gestiona una consulta medica individual y una lista de hasta 10 pacientes asignados,
+ * permitiendo dar consulta, prescribir tratamientos y listar pacientes en orden descendente.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class Medico {
-    // Atributos
+    /** Nombre del medico. */
     String nombre;
+
+    /** Cedula profesional del medico. */
     String cedula;
+
+    /** Especialidad medica del doctor. */
     String especialidad;
+
+    /** Numero actual de pacientes asignados (maximo 10). */
     int noPacientes;
+
+    /** Arreglo de pacientes asignados al medico. */
     Paciente[] pacientesAsignados;
+
+    /** Paciente que se encuentra actualmente en consulta con el medico. */
     Paciente pacienteEnConsulta;
 
-    // Constructor
+    /**
+     * Construye una nueva instancia de Medico con nombre, cedula y especialidad.
+     * Inicializa la capacidad de pacientes en un maximo de 10.
+     *
+     * @param nombre Nombre completo del medico.
+     * @param cedula Cedula profesional.
+     * @param especialidad Area medica de especialidad.
+     */
     public Medico(String nombre, String cedula, String especialidad) {
         this.nombre = nombre;
         this.cedula = cedula;
@@ -19,7 +44,11 @@ public class Medico {
         this.pacienteEnConsulta = null;
     }
 
-    // Comportamientos
+    /**
+     * Registra al medico dentro del sistema hospitalario provisto.
+     *
+     * @param sistema Instancia del sistema hospitalario donde se dara de alta al medico.
+     */
     public void registroEnSistema(Sistema sistema) {
         if (sistema != null) {
             sistema.registrarMedico(this);
@@ -28,7 +57,12 @@ public class Medico {
         }
     }
 
-    // Solicitar paciente al sistema
+    /**
+     * Solicita al sistema un paciente disponible cuya especialidad coincida con la del medico
+     * y lo admite si no se ha superado el limite de 10 pacientes.
+     *
+     * @param sistema Sistema hospitalario del cual se obtendra el paciente.
+     */
     public void solicitarPaciente(Sistema sistema) {
         if (this.noPacientes >= 10) {
             System.out.println("El Dr./Dra. " + this.nombre + " ya tiene el maximo de 10 pacientes.");
@@ -47,7 +81,12 @@ public class Medico {
         }
     }
 
-    // Admitir paciente (maximo 10)
+    /**
+     * Admite a un paciente bajo el cuidado del medico si hay cupo disponible (maximo 10).
+     *
+     * @param paciente Paciente a admitir.
+     * @return {@code true} si el paciente fue admitido correctamente; {@code false} si el cupo esta lleno o el paciente es nulo.
+     */
     public boolean admitirPaciente(Paciente paciente) {
         if (paciente == null) {
             return false;
@@ -65,7 +104,12 @@ public class Medico {
         return true;
     }
 
-    // Dar consulta
+    /**
+     * Inicia la atencion en consulta para el paciente indicado.
+     * Solo permite atender a un paciente a la vez.
+     *
+     * @param paciente Paciente que ingresa a consulta.
+     */
     public void darConsulta(Paciente paciente) {
         if (paciente == null) {
             return;
@@ -82,7 +126,11 @@ public class Medico {
         System.out.println("El Dr./Dra. " + this.nombre + " esta dando consulta a: " + paciente.nombre);
     }
 
-    // Dar tratamiento general
+    /**
+     * Asigna tratamiento general a un paciente y finaliza su consulta activa.
+     *
+     * @param paciente Paciente que pasa a tratamiento.
+     */
     public void darTratamiento(Paciente paciente) {
         if (paciente == null) {
             return;
@@ -97,7 +145,12 @@ public class Medico {
         System.out.println("El Dr./Dra. " + this.nombre + " ha indicado tratamiento a: " + paciente.nombre);
     }
 
-    // Dar tratamiento con indicacion medica
+    /**
+     * Receta una indicacion medica o tratamiento particular al paciente y finaliza su consulta activa.
+     *
+     * @param paciente Paciente al que se le prescribe el tratamiento.
+     * @param indicacion Descripcion o receta medica indicada por el doctor.
+     */
     public void darTratamiento(Paciente paciente, String indicacion) {
         if (paciente == null) {
             return;
@@ -113,7 +166,10 @@ public class Medico {
         System.out.println("El Dr./Dra. " + this.nombre + " receto a " + paciente.nombre + ": " + indicacion);
     }
 
-    // Ver lista de pacientes con Ordenamiento Burbuja (Bubble Sort) descendente (Z a A)
+    /**
+     * Muestra la lista de pacientes a cargo del medico ordenada alfabeticamente
+     * de forma descendente (Z a A) utilizando el algoritmo de ordenamiento burbuja.
+     */
     public void verListaPacientes() {
         System.out.println("\n--- Lista de Pacientes: Dr./Dra. " + this.nombre + " ---");
         System.out.println("Especialidad: " + this.especialidad + " | Total: " + this.noPacientes + "/10");

@@ -1,14 +1,37 @@
 package mx.unam.fi.die.poo.g7.practicas.proyecto1;
 
+/**
+ * Representa al personal de enfermeria en el hospital.
+ * Gestiona la atencion de hasta un maximo de 3 pacientes asignados,
+ * administrando tratamientos y mostrando el listado ordenado de pacientes.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class Enfermero {
-    // Atributos
+    /** Nombre del enfermero. */
     String nombre;
+
+    /** Cedula profesional del enfermero. */
     String cedula;
+
+    /** Especialidad medica del enfermero. */
     String especialidad;
+
+    /** Numero actual de pacientes asignados (maximo 3). */
     int noPacientes;
+
+    /** Arreglo que almacena a los pacientes asignados. */
     Paciente[] pacientesAsignados;
 
-    // Constructor
+    /**
+     * Construye un objeto Enfermero con nombre, cedula y especialidad.
+     * Inicializa la capacidad de atencion para un maximo de 3 pacientes.
+     *
+     * @param nombre Nombre completo del enfermero.
+     * @param cedula Cedula profesional del enfermero.
+     * @param especialidad Area medica o especialidad asignada.
+     */
     public Enfermero(String nombre, String cedula, String especialidad) {
         this.nombre = nombre;
         this.cedula = cedula;
@@ -17,7 +40,11 @@ public class Enfermero {
         this.pacientesAsignados = new Paciente[3]; // Maximo 3 pacientes
     }
 
-    // Comportamientos
+    /**
+     * Registra al enfermero dentro del sistema hospitalario provisto.
+     *
+     * @param sistema Instancia del sistema hospitalario donde se realizara el alta.
+     */
     public void registroEnSistema(Sistema sistema) {
         if (sistema != null) {
             sistema.registrarEnfermero(this);
@@ -26,7 +53,13 @@ public class Enfermero {
         }
     }
 
-    // Admitir paciente (maximo 3)
+    /**
+     * Admite y asigna a un paciente bajo el cuidado del enfermero si no ha alcanzado
+     * el cupo maximo de 3 pacientes.
+     *
+     * @param paciente Paciente que sera asignado.
+     * @return {@code true} si el paciente fue admitido con exito; {@code false} si el cupo esta lleno o el paciente es nulo.
+     */
     public boolean admitirPaciente(Paciente paciente) {
         if (paciente == null) {
             return false;
@@ -44,7 +77,12 @@ public class Enfermero {
         return true;
     }
 
-    // Dar tratamiento administrando la indicacion que receto el medico
+    /**
+     * Administra el tratamiento que previamente le fue recetado al paciente por el medico.
+     * Actualiza el estado del paciente a en tratamiento.
+     *
+     * @param paciente Paciente al que se le aplicara el tratamiento.
+     */
     public void darTratamiento(Paciente paciente) {
         if (paciente == null) {
             return;
@@ -55,7 +93,12 @@ public class Enfermero {
         System.out.println("El enfermero " + this.nombre + " administro el tratamiento a " + paciente.nombre + ": " + paciente.tratamiento);
     }
 
-    // Dar tratamiento con indicacion manual
+    /**
+     * Administra una indicacion o tratamiento personalizado a un paciente.
+     *
+     * @param paciente Paciente al que se le aplicara el tratamiento.
+     * @param indicacion Descripcion del medicamento o cuidado a administrar.
+     */
     public void darTratamiento(Paciente paciente, String indicacion) {
         if (paciente == null) {
             return;
@@ -67,7 +110,10 @@ public class Enfermero {
         System.out.println("El enfermero " + this.nombre + " administro tratamiento a " + paciente.nombre + ": " + indicacion);
     }
 
-    // Ver lista de pacientes con Ordenamiento Burbuja (Bubble Sort) descendente (Z a A)
+    /**
+     * Muestra la lista de pacientes a cargo del enfermero ordenada alfabeticamente
+     * de forma descendente (Z a A) utilizando el algoritmo de ordenamiento burbuja.
+     */
     public void verListaPacientes() {
         System.out.println("\n--- Lista de Pacientes: Enfermero " + this.nombre + " ---");
         System.out.println("Especialidad: " + this.especialidad + " | Total: " + this.noPacientes + "/3");

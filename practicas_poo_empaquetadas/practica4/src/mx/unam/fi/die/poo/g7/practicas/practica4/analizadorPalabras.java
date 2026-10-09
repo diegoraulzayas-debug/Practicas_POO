@@ -4,15 +4,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
+/**
+ * Clase encargada de analizar una oracion de texto, contando la frecuencia
+ * de aparicion de cada palabra e identificando aquellas que se encuentran duplicadas.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class analizadorPalabras {
     private String oracion;
     private Map<String, Integer> frecuencias;
 
+    /**
+     * Construye un analizador de palabras con la oracion especificada.
+     * Inicializa la estructura interna para almacenar las frecuencias.
+     *
+     * @param nuevaOracion Texto que sera analizado.
+     */
     public analizadorPalabras(String nuevaOracion) {
         this.oracion = nuevaOracion;
         this.frecuencias = new HashMap<>();
     }
 
+    /**
+     * Cuenta la frecuencia de aparicion de cada palabra en la oracion.
+     * Limpia la oracion conservando caracteres alfanumericos y espacios,
+     * la divide en palabras y contabiliza las repeticiones.
+     *
+     * @return Mapa que relaciona cada palabra con su frecuencia de aparicion.
+     */
     public Map<String, Integer> contarPalabras() {
         if (oracion == null) return frecuencias;
 
@@ -36,6 +56,11 @@ public class analizadorPalabras {
         return frecuencias;
     }
 
+    /**
+     * Calcula la cantidad total de palabras distintas que aparecen mas de una vez.
+     *
+     * @return El numero de palabras duplicadas encontradas en la oracion.
+     */
     public int obtenerNumerosDuplicados() {
         int duplicados = 0;
 
@@ -48,6 +73,12 @@ public class analizadorPalabras {
         return duplicados;
     }
 
+    /**
+     * Muestra en consola las palabras duplicadas junto con su frecuencia de aparicion.
+     *
+     * @param ordenado {@code true} para mostrar las palabras en orden alfabetico;
+     *                 {@code false} para mostrarlas segun el orden del mapa.
+     */
     public void mostrarDuplicados(boolean ordenado) {
         if (ordenado) {
             TreeSet<String> clavesOrdenadas = new TreeSet<>();

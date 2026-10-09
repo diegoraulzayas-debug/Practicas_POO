@@ -2,8 +2,28 @@ package mx.unam.fi.die.poo.g7.practicas.practica5;
 
 import java.util.Scanner;
 
+/**
+ * Clase de prueba para la clase {@link Fecha}.
+ * Solicita los datos de una fecha al usuario, muestra la fecha original,
+ * permite modificar los valores de dia, mes y ano mediante setters y muestra la fecha modificada.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class MainFecha {
 
+    /**
+     * Constructor por defecto de la clase MainFecha.
+     */
+    public MainFecha() {
+    }
+
+    /**
+     * Metodo principal que interactua con el usuario para crear una instancia
+     * de {@link Fecha}, mostrarla, actualizar sus atributos y volver a mostrarla.
+     *
+     * @param args Argumentos de la linea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);

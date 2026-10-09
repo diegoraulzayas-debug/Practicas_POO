@@ -2,7 +2,26 @@ package mx.unam.fi.die.poo.g7.practicas.practica1;
 
 import java.util.Scanner;
 
+/**
+ * Clase que calcula la raiz n-esima de un numero ingresado por el usuario.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class radical {
+
+	/**
+	 * Constructor por defecto de la clase radical.
+	 */
+	public radical() {
+	}
+
+	/**
+	 * Metodo principal que solicita por consola un radicando y un indice
+	 * para calcular y mostrar el resultado de la raiz correspondiente.
+	 *
+	 * @param args Argumentos de la linea de comandos (no utilizados).
+	 */
 	public static void main(String[] args) {
 		
 		Scanner open = new Scanner(System.in);

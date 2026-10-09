@@ -2,7 +2,29 @@ package mx.unam.fi.die.poo.g7.practicas.practica1;
 
 import java.util.Scanner;
 
+/**
+ * Clase principal para la Practica 1.
+ * Implementa una calculadora interactiva por consola con operaciones de suma, resta,
+ * multiplicacion, division, exponente, raiz y modulo.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 1.0
+ */
 public class Practica_1 {
+
+    /**
+     * Constructor por defecto de la clase Practica_1.
+     */
+    public Practica_1() {
+    }
+
+    /**
+     * Metodo principal que ejecuta el menu interactivo de la calculadora.
+     * Permite al usuario realizar operaciones aritmeticas basicas repetidamente
+     * hasta que decida salir.
+     *
+     * @param args Argumentos de la linea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
