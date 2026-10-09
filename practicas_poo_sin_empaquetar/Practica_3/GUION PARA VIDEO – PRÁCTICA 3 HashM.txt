@@ -1,0 +1,42 @@
+GUION PARA VIDEO – PRÁCTICA 3: HashMap, el TreeSet y la programación de ¿Palíndromo o no?
+Duración objetivo: aprox. 4:25 min
+Participantes:
+- Narrador.Emanuel
+- Desarrollador.Diego
+- Diagramas.Julius
+- Redactor.Iván
+- Editor.Yahir
+
+Atención: este guion sigue el índice de nuestro documento de forma ordenada: Introducción, Marco Teórico, Desarrollo (con todo ejercicio), Resultados y Conclusiones.
+
+
+[0:00–0:10] NARRADOR – PRESENTACIÓN //10 segundos
+“¡Hola! somos el equipo 4 y en este video presentaremos la Práctica 3 de Programación Orientada a Objetos. La práctica aborda dos temas principales: el análisis ante respuestas de LLm´s hablando de HashMap y TreeSet. Y segundo, la implementación en Java de un programa que determina si un número de cinco dígitos es un palíndromo o no.”
+
+[0:10–0:42] NARRADOR – INTRODUCCIÓN Y OBJETIVOS //32 segundos
+“Como primer objetivo para esta práctica es comparar las respuestas generadas por diferentes modelos de lenguaje a partir de distintos prompts. Además, se desarrolló una aplicación en Java cuya utilidad da determinar si un entero con cinco dígitos es un palíndromo; buscando validar la entrada mediante estructuras de control, para después dar con el palíndromo mediante un método estático.”
+
+[0:42–1:14] NARRADOR – MARCO TEÓRICO //32 segundos
+“Revisamos dos estructuras de datos en Java. HashMap almacena pares clave-valor, manejando una función hash para localizar elementos; teniendo una búsqueda lineal. Por otro lado, TreeSet almacena elementos que no se repitan, con tal de mantenerlos ordenados mediante un árbol Rojo-Negro. También utilizamos métodos estáticos, recordemos que pertenecen a la clase y que le da independencia ante un objeto.”
+
+[1:14–1:52] EDITOR – EJERCICIO 1: RESPUESTA 1 //38 segundos
+“Como análisis a los modelos de lenguaje. En la primera interacción, el prompt mezclaba de forma ambigua la explicación de HashMap y TreeSet con una solicitud de ejemplos de compilación. Al no establecer lenguaje desde el prompt, la LLM asumió Java. La respuesta incluyó explicaciones sin un vínculo exacto ante el problema principal, después habló sobre la complejidad de las estructuras en base a la big O.”
+
+[1:52–2:30] REDACTOR – EJERCICIO 1: RESPUESTAS 2 Y 3 //38 segundos
+“En el segundo prompt, se acotó la respuesta de la IA partiendo de preguntas claves, por consecuente, hubo más exactitud. Incluyó factor de carga, rehashing, colisiones, árboles Rojo-Negro y métodos de consulta por rango. Por último, La tercer respuesta utilizó un enfoque más pedagógico para un ingeniero en formación, con código y esquemas. En nuestra comparación, la respuesta 2 fue la más adecuada para un análisis directo, mientras que la respuesta 3 destacó por su enfoque didáctico.”
+
+[2:30–3:20] DESARROLLADOR – EJERCICIO 2: LÓGICA DEL PROGRAMA //50 segundos
+“Como segundo ejercicio desarrollamos una aplicación en Java que recibe un número entero a base de la clase Scanner. Primero se valida que sea positivo y que esté dentro del rango de cinco dígitos, es decir, entre 10000 y 99999. Si no cumple, un ciclo while solicita nuevamente el dato. Cuando se valida, va al método estático:
+Dentro se comparan los dígitos que ocupan posiciones simétricas. El primer dígito con ayuda de la división a 10,000 se compara con el último digito que sale del módulo 10. Después, el segundo se obtiene dividiendo entre 1000 y aplicando módulo 10, mientras que el cuarto se obtiene dividiendo entre 10 y aplicando nuevamente módulo 10, y se comparan. Con el operador lógico && se verifica que ambas parejas coincidan. Si las dos comparaciones son verdaderas, el método retorna true; en caso contrario, retorna false.”
+
+[3:20–3:42] DIAGRAMAS – FLUJO Y ESQUEMA // 22 segundos
+“El diagrama de flujo lo representa gráficamente. Primero se recibe el número candidato, después se verifica si cumple con el rango de cinco dígitos y, si no lo cumple, se regresa a la entrada. Cuando sale de ahí, se extraen y se comparan dígitos. Finalmente, el programa muestra si se cumple: ser o no ser palíndromo. El esquema permite mostrar de forma fácil nuestra lógica, muestra las entradas, decisiones y la salida.”
+
+[3:42–4:00] NARRADOR – RESULTADOS //18 segundos
+“Como prueba, se introdujeron valores fuera del rango para comprobar que el programa solicitara nuevamente la entrada al dar false, además otras pruebas como validación de palíndromo cuando el usuario mete valor de 5 dígitos. Los resultados confirmaron que la validación y la lógica aritmética funcionaron de acuerdo con lo planteado.”
+
+[4:00–4:25] NARRADOR – CONCLUSIÓN Y DESPEDIDA //25 segundos
+“En conclusión, la práctica mostró la importancia de encontrar diferencias y semejanzas entre distintas respuestas, además de diseñar algoritmos aún en forma estructurada y en división de tareas. También se comprobó el funcionamiento del método estático en cuanto a la validación de un palíndromo, acertando con el proceso aritmético.
+Eso fue todo, se despide el equipo 4, gracias por su atención.”
+
+*(TIEMPO ESTIMADO TOTAL).4:25

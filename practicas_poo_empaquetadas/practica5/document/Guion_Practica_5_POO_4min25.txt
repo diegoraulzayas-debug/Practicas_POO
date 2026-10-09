@@ -1,0 +1,194 @@
+GUION — PRÁCTICA 5 DE POO
+
+Duración objetivo: ~4:25
+Límite máximo: 5:00
+Margen: ~35 segundos
+
+DISTRIBUCIÓN
+Narrador/Vocalista: ~1:25
+Redactor: ~0:43
+Desarrollador: ~0:50
+Diagramador: ~0:32
+Editor: ~0:40
+
+
+1. 0:00 – 0:25 | SALUDO Y OBJETIVOS
+NARRADOR
+
+Hola, somos el equipo de la brigada 04 y en este video presentaremos nuestra quinta práctica de Programación Orientada a Objetos.
+
+En esta práctica trabajamos principalmente el encapsulamiento, los constructores y el uso de métodos de acceso y modificación en Java.
+
+Además, implementamos dos programas: uno para representar empleados y controlar sus salarios, y otro para representar y modificar fechas.
+
+Finalmente, analizamos tres respuestas de modelos de lenguaje sobre el uso de setters dentro de constructores.
+
+
+2. 0:25 – 0:52 | MARCO TEÓRICO
+NARRADOR
+
+NARRADOR:
+La práctica parte del concepto de encapsulamiento, que consiste en proteger los datos internos de una clase y controlar la forma en que pueden ser utilizados desde el exterior.
+
+En Java esto se relaciona directamente con los modificadores de acceso como private, public y protected, además de los métodos getters y setters.
+
+También trabajamos con los constructores, cuya función es establecer el estado inicial de un objeto al momento de generarlos.
+
+Como punto importante de la práctica es mantener las condiciones que hacen válido a un objeto, por ejemplo, evitar que un empleado tenga un salario negativo.
+
+
+3. 0:52 – 1:35 | DOS PRIMERAS RESPUESTAS LLM
+REDACTOR
+
+[EN PANTALLA: Prompt 1 → Respuesta 1 → Prompt 2 → Respuesta 2]
+
+En la primera actividad analizamos tres respuestas de modelos de lenguaje sobre la conveniencia de utilizar métodos modificadores, o setters, dentro de los constructores.
+
+La primera respuesta tuvo un problema desde el planteamiento: el prompt utilizó el término “métodos modificadores” pero posteriormente aclaró entre paréntesis que se refería a public, private y protected.
+
+Por esta razón, la LLM interpretó la pregunta como un problema relacionado con la visibilidad de los constructores y explicó diferentes niveles de acceso, incluyendo constructores privados y métodos de fábrica.
+
+La segunda respuesta aborda directamente el uso de setters dentro de constructores, hablando especialmente cuando estos métodos pueden ser sobreescritos.
+
+La respuesta nos muestra que esto puede provocar problemas en el despacho dinámico a nivel memoria durante la construcción de objetos.
+
+
+4. 1:35 – 1:58 | TERCERA RESPUESTA LLM
+NARRADOR
+
+[EN PANTALLA: Prompt 3 + fragmentos importantes]
+
+La tercera respuesta también descartó el uso de setters dentro de los constructores y profundizó en las consecuencias del despacho dinámico.
+
+Además, señaló que un método sobreescrito podría ejecutarse cuando el objeto de la subclase todavía no ha terminado de construirse.
+
+También mencionó otros posibles efectos secundarios y propuso alternativas como realizar la validación directamente, utilizar métodos auxiliares privados o recurrir a patrones como Builder y fábricas estáticas.
+
+En general, las respuestas dos y tres coincidieron en los riesgos de utilizar setters sobreescribibles durante la construcción de objetos.
+
+
+5. 1:58 – 2:48 | PRIMER PROGRAMA — EMPLEADO
+DESARROLLADOR
+
+[EN PANTALLA: clase Empleado]
+
+El primer programa implementa la clase Empleado, cuyos atributos son nombre, apellido y salario mensual.
+
+Estos atributos se mantienen privados para aplicar encapsulamiento.
+
+El constructor recibe los tres datos y asigna los valores correspondientes. En el caso del salario, se realiza una validación para evitar recibir cantidades negativas.
+
+También se implementaron getters y setters para controlar el acceso y modificación de los atributos.
+
+En particular, el setter del salario verifica que el valor recibido sea válido antes de modificar el atributo.
+
+Además, la clase cuenta con un método para calcular el salario anual multiplicando el salario mensual por doce y otro para aplicar un incremento del diez por ciento.
+
+En la clase principal se crean dos empleados y se prueban tanto valores válidos como un salario negativo para comprobar que la validación funcione correctamente.
+
+[EN PANTALLA: ejecución]
+
+Después se muestran los salarios anuales iniciales y nuevamente después de aplicar el incremento.
+
+
+6. 2:48 – 3:28 | SEGUNDO PROGRAMA — FECHA
+EDITOR
+
+[EN PANTALLA: clase Fecha y después ejecución]
+
+El segundo programa trabaja con una clase llamada Fecha.
+
+Esta clase contiene tres atributos privados de tipo entero: día, mes y año.
+
+El constructor recibe estos tres valores y los asigna a los atributos correspondientes.
+
+Para consultar la información se implementaron getters y para modificarla se utilizaron setters.
+
+También se creó un método para mostrar la fecha utilizando el formato día, mes y año separados mediante barras.
+
+En la ejecución primero se solicitan los datos al usuario, se crea la instancia y se muestra la fecha inicial.
+
+Después se introducen nuevos valores mediante los setters y se vuelve a mostrar la fecha para comprobar que la modificación se realizó correctamente.
+
+
+7. 3:28 – 3:48 | RESULTADOS
+NARRADOR
+
+EDITOR:
+En los resultados podemos observar que el programa Empleado rechaza valores salariales negativos y permite calcular y modificar correctamente el salario anual.
+
+NARRADOR:
+Mientras que en el programa Fecha podemos comprobar la captura de los valores iniciales y su posterior actualización mediante los métodos modificadores.
+
+
+8. 3:48 – 4:20 | DIAGRAMAS
+DIAGRAMADOR
+
+[EN PANTALLA: Diagrama de clases UML]
+
+Para representar visualmente la estructura y funcionamiento de los programas realizamos cinco diagramas.
+
+Primero tenemos el diagrama de clases UML, donde se pueden observar las clases, sus atributos y sus métodos.
+
+[CAMBIO: Fecha → mostrarFecha]
+
+El segundo representa el funcionamiento del método mostrarFecha de la clase Fecha.
+
+[CAMBIO: Empleado → validarSalario]
+
+El tercero corresponde a validarSalario, mostrando el proceso utilizado para comprobar el salario.
+
+[CAMBIO: MainFecha → main]
+
+El cuarto representa el flujo principal de la ejecución del programa Fecha.
+
+[CAMBIO: MainEmpleado → main]
+
+Y finalmente, el quinto muestra el flujo principal de MainEmpleado.
+
+
+9. 4:20 – 4:25 | CONCLUSIÓN Y SALUDO
+NARRADOR
+
+[EN PANTALLA: conclusión + nombres]
+
+En conclusión, esta práctica nos permitió aplicar encapsulamiento, constructores, getters, setters y validación para mantener objetos consistentes.
+
+También comprobamos mediante los dos programas el funcionamiento de estas técnicas en casos prácticos.
+
+Gracias por su atención.
+
+
+
+4. En la actividad de LLM mostrar solamente fragmentos relevantes de los tres prompts y sus respuestas.
+
+5. En Empleado mostrar: atributos private, constructor, validación del salario, getters/setters, cálculo del salario anual, aumento del 10 %, MainEmpleado y ejecución.
+
+6. En Fecha mostrar: atributos día/mes/año, constructor, getters/setters, mostrarFecha(), MainFecha y ejecución.
+
+7. Para los diagramas mostrar:
+- 01_Diagrama_Clases_UML.png
+- 02_Fecha_mostrarFecha.png
+- 03_Empleado_validarSalario.png
+- 04_MainFecha_main.png
+- 05_MainEmpleado_main.png
+
+8. Si al grabarlo queda entre aproximadamente 4:20 y 4:40, está bien. No es necesario acercarse al límite de 5 minutos.
+ulo del salario anual, aumento del 10 %, MainEmpleado y ejecución.
+
+6. En Fecha mostrar: atributos día/mes/año, constructor, getters/setters, mostrarFecha(), MainFecha y ejecución.
+
+7. Para los diagramas mostrar:
+- 01_Diagrama_Clases_UML.png
+- 02_Fecha_mostrarFecha.png
+- 03_Empleado_validarSalario.png
+- 04_MainFecha_main.png
+- 05_MainEmpleado_main.png
+
+8. Si al grabarlo queda entre aproximadamente 4:20 y 4:40, está bien. No es necesario acercarse al límite de 5 minutos.
+minutos.
+rcarse al límite de 5 minutos.
+ímite de 5 minutos.
+
+s.
+s necesario acercarse al límite de 5 minutos.
