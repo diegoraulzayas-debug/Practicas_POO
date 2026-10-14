@@ -1,0 +1,61 @@
+GUION — PRÁCTICA 6: ORGANIZACIÓN Y EMPAQUETAMIENTO DE CLASES
+Duración objetivo: 4 minutos con 25 segundos
+
+1. SALUDO Y OBJETIVOS — 0:00 a 0:25 (Duración de sección: 25 segundos)
+
+(0:00 - 0:25) NARRADOR (25 seg) #1.1:
+Hola, en este video presentaremos la práctica seis de Programación Orientada a Objetos, enfocada en la organización y el empaquetamiento de clases en Java. El objetivo fue reunir los trabajos del semestre en una estructura uniforme, separar los archivos según su función y generar tanto archivos ejecutables JAR como documentación técnica.
+
+2. MARCO TEÓRICO Y PRESENTACIÓN DE LA PRÁCTICA — 0:25 a 0:55 (Duración de sección: 30 segundos)
+
+(0:25 - 0:42) NARRADOR (17 seg) #2.1:
+Para comprender el desarrollo, es importante distinguir tres elementos: los paquetes de Java, los archivos JAR y Javadoc. Los paquetes organizan las clases y ayudan a evitar conflictos de nombres. Los JAR reúnen clases compiladas y otros recursos en un solo archivo distribuible. Por último, Javadoc genera documentación técnica en formato HTML a partir del código fuente y sus comentarios.
+
+(0:42 - 0:55) REDACTOR (13 seg) #2.2:
+Estos elementos cumplen funciones diferentes, pero complementarias. Una organización clara permite mantener el código fuente separado de los archivos compilados, distribuir las aplicaciones y consultar la documentación de cada clase.
+
+3. ANÁLISIS DE LAS RESPUESTAS DE LOS MODELOS DE LENGUAJE — 0:55 a 1:45 (Duración de sección: 50 segundos)
+
+(0:55 - 1:13) REDACTOR (18 seg) #3.1:
+En la primera consulta se solicitaron buenas prácticas para utilizar JAR y Javadoc, junto con una justificación técnica. La respuesta propuso herramientas de construcción automatizada, como Maven y Gradle, y abordó prácticas de documentación más propias de proyectos profesionales. Fue rigurosa, aunque asumió un entorno avanzado y no explicó el procedimiento básico por consola.
+
+(1:13 - 1:30) NARRADOR (17 seg) #3.2:
+La segunda consulta se planteó de forma más directa y en un contexto universitario. La respuesta diferenció la distribución mediante JAR de la generación de documentación con Javadoc, y propuso organizar los archivos en carpetas separadas. También explicó cómo realizar los procesos desde la consola, por lo que resultó más cercana a los objetivos de la práctica.
+
+(1:30 - 1:45) REDACTOR (15 seg) #3.3:
+En la tercera consulta se incluyeron restricciones específicas relacionadas con la herencia, pero se escribió Java y JavaDoc en lugar de solicitar información sobre JAR. Por ello, la respuesta se concentró en diseño orientado a objetos y contratos de extensión, y dejó fuera el empaquetamiento. La comparación mostró que la precisión y la redacción del prompt influyen directamente en el resultado obtenido.
+
+4. ORGANIZACIÓN Y EMPAQUETAMIENTO DE CLASES — 1:45 a 3:20 (Duración de sección: 95 segundos)
+
+(1:45 - 2:03) NARRADOR (18 seg) #4.1:
+La segunda actividad consistió en organizar las prácticas y el proyecto del semestre dentro de una carpeta principal. Se establecieron seis divisiones independientes y, dentro de cada trabajo, cuatro carpetas: src, test, library y document.
+
+(2:03 - 2:21) DESARROLLADOR (18 seg) #4.2:
+La carpeta src contiene los archivos fuente con extensión .java. La carpeta test almacena los archivos .class que se generan al compilar. La carpeta library reúne los archivos JAR, mientras que document contiene el reporte de la práctica y la documentación HTML generada.
+
+(2:21 - 2:41) NARRADOR (20 seg) #4.3:
+También fue importante respetar la relación entre los paquetes declarados en el código y la estructura de directorios. La ruta del paquete debe corresponder con la ubicación de las clases, tanto en las fuentes como en los archivos compilados. Así se conserva una organización consistente y se facilita localizar cada componente.
+
+(2:41 - 3:00) DESARROLLADOR (19 seg) #4.4:
+Para compilar, se indicó como entrada la carpeta de fuentes y como destino la carpeta de archivos binarios. Después, a partir de las clases compiladas, se creó un JAR para cada aplicación. Se configuró la clase principal en el manifiesto, lo que permitió ejecutar el archivo directamente mediante la máquina virtual de Java.
+
+(3:00 - 3:20) EDITOR (20 seg) #4.5:
+Finalmente, se utilizó Javadoc sobre los archivos fuente para generar páginas HTML con información de las clases y sus métodos. La documentación se guardó en la carpeta document, manteniendo separados los archivos editables, los productos compilados, los paquetes distribuibles y la información técnica.
+
+5. RESULTADOS — 3:20 a 3:45 (Duración de sección: 25 segundos)
+
+(3:20 - 3:34) EDITOR (14 seg) #5.1:
+En los resultados se observa la estructura general de directorios y paquetes, el contenido de la carpeta con los archivos compilados y la documentación técnica abierta en el navegador. Estas evidencias permiten verificar que los archivos quedaron organizados y que la documentación se generó correctamente.
+
+(3:34 - 3:45) NARRADOR (11 seg) #5.2:
+Además, la ejecución del archivo JAR permitió comprobar que el empaquetamiento incluía la clase principal necesaria para iniciar la aplicación.
+
+6. DIAGRAMAS Y EVIDENCIAS VISUALES — 3:45 a 4:05 (Duración de sección: 20 segundos)
+
+(3:45 - 4:05) DIAGRAMADOR (20 seg) #6.1:
+Las evidencias visuales muestran cómo se distribuyen los archivos dentro de las carpetas y cómo se relacionan los paquetes con las clases. También permiten apreciar los archivos binarios generados y las páginas HTML producidas por Javadoc, complementando la explicación del procedimiento.
+
+7. CONCLUSIONES Y DESPEDIDA — 4:05 a 4:25 (Duración de sección: 20 segundos)
+
+(4:05 - 4:25) NARRADOR (20 seg) #7.1:
+En conclusión, se cumplió el objetivo de organizar los trabajos del semestre en una estructura uniforme, separando fuentes, binarios, archivos JAR y documentación. La práctica también permitió aplicar los paquetes de Java y comprobar la utilidad de las herramientas de compilación, distribución y documentación. Con ello, los proyectos quedan más ordenados, son más fáciles de mantener y pueden distribuirse con mayor claridad. Gracias por su atención.
