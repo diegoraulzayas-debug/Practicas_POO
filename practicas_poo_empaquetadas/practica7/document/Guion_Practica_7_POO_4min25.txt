@@ -1,0 +1,62 @@
+GUION — PRÁCTICA 7: JERARQUÍA DE CUADRILÁTEROS
+Duración objetivo: 4 minutos con 25 segundos
+
+1. INTRODUCCIÓN Y OBJETIVOS
+
+NARRADOR — 0:00 a 0:25 (25 segundos)
+Hola, en este video presentaremos la práctica siete de Programación Orientada a Objetos. El trabajo consiste en implementar una jerarquía de clases en Java para representar cuadriláteros a partir de coordenadas cartesianas. También analizaremos distintas respuestas de modelos de lenguaje sobre el modificador protected y su uso en la herencia.
+
+NARRADOR — 0:25 a 0:43 (18 segundos)
+El objetivo es construir una cadena de herencia que permita calcular el área de distintas figuras mediante la sobreescritura de métodos, y comparar críticamente las respuestas de inteligencia artificial acerca del encapsulamiento y la visibilidad de los miembros.
+
+2. MARCO TEÓRICO
+
+REDACTOR — 0:43 a 1:00 (17 segundos)
+En Java existen distintos niveles de acceso: private, acceso de paquete, protected y public. Cada uno determina desde dónde pueden consultarse o modificarse los miembros de una clase, por lo que elegirlos correctamente influye en el encapsulamiento y el mantenimiento del programa.
+
+NARRADOR — 1:00 a 1:15 (15 segundos)
+El modificador protected no es una mala práctica por sí mismo. Puede ser útil para permitir que las clases derivadas extiendan un comportamiento, pero exponer directamente atributos mutables puede reducir el control que tiene la clase sobre su propio estado.
+
+3. ANÁLISIS DE LAS RESPUESTAS DE LOS MODELOS DE LENGUAJE
+
+REDACTOR — 1:15 a 1:33 (18 segundos)
+La primera consulta preguntó de forma directa por qué protected podría considerarse una mala práctica. La respuesta corrigió esa premisa y explicó que el principal riesgo aparece al usarlo en variables de estado, porque las clases derivadas podrían alterar datos sin pasar por validaciones.
+
+NARRADOR — 1:33 a 1:51 (18 segundos)
+La segunda consulta fue más extensa y pidió argumentos a favor y en contra, ejemplos comparativos y referencias técnicas. La respuesta distinguió entre proteger atributos y habilitar métodos de extensión, apoyándose en las reglas de acceso de Java y en principios de diseño orientado a objetos.
+
+REDACTOR — 1:51 a 2:08 (17 segundos)
+La tercera consulta reunió varias preguntas en un solo párrafo. La respuesta explicó que protected puede ser problemático para el estado, pero válido en métodos auxiliares. Aunque ofreció una comparación conceptual, no incluyó código ejecutable como ejemplo.
+
+NARRADOR — 2:08 a 2:23 (15 segundos)
+Al comparar las tres respuestas, observamos que el detalle y el enfoque dependieron de cómo se redactó cada consulta. La conclusión común fue que protected debe evaluarse según su uso: no es equivalente exponer atributos que permitir puntos de extensión controlados mediante métodos.
+
+4. IMPLEMENTACIÓN DE LA JERARQUÍA
+
+DESARROLLADOR — 2:23 a 2:40 (17 segundos)
+El programa se organizó en cinco niveles de herencia: Cuadrilatero, Trapezoide, Paralelogramo, Rectangulo y Cuadrado. Cada clase deriva de la anterior, de modo que la figura más específica aprovecha la estructura y el comportamiento heredados.
+
+NARRADOR — 2:40 a 2:56 (16 segundos)
+También se creó la clase auxiliar Punto, que representa coordenadas cartesianas con valores x e y privados. La clase Cuadrilatero conserva cuatro referencias privadas a puntos y ofrece métodos de acceso para que las clases derivadas consulten los vértices sin modificar directamente la representación interna.
+
+DESARROLLADOR — 2:56 a 3:14 (18 segundos)
+Trapezoide implementa el cálculo del área usando las dos bases y la altura. Paralelogramo sobreescribe el método y calcula base por altura. Rectangulo mantiene esa fórmula y delega el cálculo a su clase padre mediante super.calcularArea().
+
+DESARROLLADOR — 3:14 a 3:28 (14 segundos)
+Cuadrado completa la jerarquía y calcula el área elevando al cuadrado la longitud de su base. En los cálculos se normalizan las diferencias de coordenadas para evitar que un signo negativo produzca áreas incorrectas.
+
+EDITOR — 3:28 a 3:43 (15 segundos)
+La clase MainFiguras crea cada figura a partir de sus vértices y ejecuta los métodos de cálculo. Con las coordenadas definidas en la práctica, el programa imprime las áreas de las cuatro figuras en la terminal para comprobar su funcionamiento.
+
+5. RESULTADOS Y EVIDENCIAS
+
+EDITOR — 3:43 a 3:57 (14 segundos)
+Los resultados de ejecución fueron 24 unidades cuadradas para el trapezoide, 24 para el paralelogramo, 24 para el rectángulo y 25 para el cuadrado. Estos valores corresponden a las coordenadas proporcionadas a cada objeto.
+
+DIAGRAMADOR — 3:57 a 4:12 (15 segundos)
+Los diagramas muestran la jerarquía de clases y los métodos calcularArea de cada figura, además del flujo principal de MainFiguras. En conjunto, ayudan a visualizar la relación entre herencia, sobreescritura y delegación de operaciones.
+
+6. CONCLUSIONES Y DESPEDIDA
+
+NARRADOR — 4:12 a 4:25 (13 segundos)
+En conclusión, se cumplió el objetivo de implementar una jerarquía de cuadriláteros que reutiliza y especializa el cálculo de áreas. Además, el análisis mostró que protected es útil cuando controla extensiones mediante métodos, pero puede debilitar el encapsulamiento si expone atributos. Gracias por su atención.
