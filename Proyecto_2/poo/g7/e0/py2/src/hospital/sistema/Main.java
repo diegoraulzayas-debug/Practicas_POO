@@ -424,16 +424,16 @@ public class Main {
         System.out.println("      DEMOSTRACIÓN DE POLIMORFISMO (ESTÁTICO Y DINÁMICO)");
         System.out.println("=======================================================");
 
-        // 1. Polimorfismo a través de la Interfaz interfaces.AtencionMedica (Fully Qualified Name)
-        System.out.println("\n--- 1. POLIMORFISMO MEDIANTE LA INTERFAZ interfaces.AtencionMedica ---");
-        interfaces.AtencionMedica[] profesionales = new interfaces.AtencionMedica[3];
+        // 1. Polimorfismo a través de la Interfaz AtencionMedica
+        System.out.println("\n--- 1. POLIMORFISMO MEDIANTE LA INTERFAZ AtencionMedica ---");
+        AtencionMedica[] profesionales = new AtencionMedica[3];
         profesionales[0] = new MedicoGeneral("DRA. GABRIELA RUIZ", "MED-0099", "Consultorio 102");
         profesionales[1] = new MedicoEspecialista("DR. HÉCTOR VEGA", "MED-0088", "CARDIOLOGIA", 15, "Hemodinamia");
         profesionales[2] = new EnfermeroEspecialista("LIC. CARMEN SOSA", "ENF-0077", "CARDIOLOGIA", "ACLS");
 
         Paciente pacDemo = new PacienteEspecialidad("VALENTINA LOPEZ", "CARDIOLOGIA", 4, "Dolor torácico");
 
-        for (interfaces.AtencionMedica profesional : profesionales) {
+        for (AtencionMedica profesional : profesionales) {
             System.out.println("Ejecutando darConsulta() en objeto de tipo real: " + profesional.getClass().getSimpleName());
             profesional.darConsulta(pacDemo);
         }
