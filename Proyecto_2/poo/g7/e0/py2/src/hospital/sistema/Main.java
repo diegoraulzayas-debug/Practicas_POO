@@ -440,13 +440,18 @@ public class Main {
 
         // 2. Polimorfismo en Jerarquía de Pacientes
         System.out.println("\n--- 2. POLIMORFISMO EN JERARQUÍA DE PACIENTES ---");
+        // Para no contaminar los cupos reales del hospital principal, usamos un entorno de demostración
+        Sistema hospitalDemo = new Sistema("Hospital Demostración");
+        hospitalDemo.registrarMedico(new MedicoGeneral("DR. DEMO GENERAL", "MED-DEMO1", "Consultorio Demo"));
+        hospitalDemo.registrarMedico(new MedicoEspecialista("DRA. DEMO PEDIATRIA", "MED-DEMO2", "PEDIATRIA", 10, "Pediatría"));
+
         Paciente[] pacientesDemo = new Paciente[2];
         pacientesDemo[0] = new PacienteGeneral("ALBERTO DIAZ", "Chequeo anual preventivo");
         pacientesDemo[1] = new PacienteEspecialidad("BEATRIZ MORA", "PEDIATRIA", 3, "Fiebre persistente");
 
         for (Paciente p : pacientesDemo) {
             System.out.println("\nInvocando solicitarConsulta() polimórfico en: " + p.getClass().getSimpleName());
-            p.solicitarConsulta(hospital);
+            p.solicitarConsulta(hospitalDemo);
         }
 
         // 3. Polimorfismo Estático (Sobrecarga de Métodos)

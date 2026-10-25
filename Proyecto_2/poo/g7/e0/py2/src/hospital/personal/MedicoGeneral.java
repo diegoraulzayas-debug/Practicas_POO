@@ -30,7 +30,7 @@ public class MedicoGeneral extends Medico {
     @Override
     public boolean puedeAtender(Paciente paciente) {
         if (paciente == null) return false;
-        return (paciente instanceof PacienteGeneral) || paciente.getEspecialidad().equalsIgnoreCase("GENERAL");
+        return paciente.getEspecialidad().equalsIgnoreCase("GENERAL");
     }
 
     @Override

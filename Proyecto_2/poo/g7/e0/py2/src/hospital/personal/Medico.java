@@ -64,7 +64,11 @@ public abstract class Medico implements AtencionMedica {
     }
 
     public Paciente[] getPacientesAsignados() {
-        return this.pacientesAsignados;
+        Paciente[] copia = new Paciente[this.noPacientes];
+        for (int i = 0; i < this.noPacientes; i++) {
+            copia[i] = this.pacientesAsignados[i];
+        }
+        return copia;
     }
 
     public Paciente getPacienteEnConsulta() {
@@ -124,6 +128,13 @@ public abstract class Medico implements AtencionMedica {
             return false;
         }
 
+        for (int i = 0; i < this.noPacientes; i++) {
+            if (this.pacientesAsignados[i] == paciente) {
+                System.out.println("Aviso: El paciente " + paciente.getNombre() + " ya está asignado a este médico.");
+                return false;
+            }
+        }
+
         if (this.noPacientes >= MAX_PACIENTES) {
             System.out.println("Aviso: El Dr./Dra. " + this.nombre + " ya tiene cupo lleno (" + MAX_PACIENTES + "/" + MAX_PACIENTES + ").");
             return false;
@@ -166,13 +177,18 @@ public abstract class Medico implements AtencionMedica {
             return;
         }
 
+        if (indicacion == null || indicacion.trim().isEmpty()) {
+            System.out.println("Error: La indicación o prescripción médica no puede estar vacía.");
+            return;
+        }
+
         if (this.pacienteEnConsulta == paciente) {
             this.pacienteEnConsulta = null;
         }
 
         paciente.setEstaEnConsulta(false);
         paciente.setEstaEnTratamiento(true);
-        paciente.setTratamiento(indicacion);
+        paciente.setTratamiento(indicacion.trim());
         System.out.println("El Dr./Dra. " + this.nombre + " recetó e indicó a " + paciente.getNombre() + ": " + indicacion);
     }
 

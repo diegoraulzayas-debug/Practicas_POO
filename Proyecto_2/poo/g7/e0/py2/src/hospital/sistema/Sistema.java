@@ -120,6 +120,12 @@ public class Sistema {
             System.out.println("Error: No se puede registrar un médico nulo.");
             return;
         }
+        for (int i = 0; i < this.noMedicos; i++) {
+            if (this.medicos[i] == medico) {
+                System.out.println("Aviso: El médico " + medico.getNombre() + " ya está registrado en el hospital.");
+                return;
+            }
+        }
         if (this.noMedicos == this.medicos.length) {
             Medico[] nuevoArreglo = new Medico[this.medicos.length * 2];
             for (int i = 0; i < this.medicos.length; i++) {
@@ -138,6 +144,12 @@ public class Sistema {
             System.out.println("Error: No se puede registrar un enfermero nulo.");
             return;
         }
+        for (int i = 0; i < this.noEnfermeros; i++) {
+            if (this.enfermeros[i] == enfermero) {
+                System.out.println("Aviso: El enfermero " + enfermero.getNombre() + " ya está registrado en el hospital.");
+                return;
+            }
+        }
         if (this.noEnfermeros == this.enfermeros.length) {
             Enfermero[] nuevoArreglo = new Enfermero[this.enfermeros.length * 2];
             for (int i = 0; i < this.enfermeros.length; i++) {
@@ -155,6 +167,12 @@ public class Sistema {
         if (paciente == null) {
             System.out.println("Error: No se puede registrar un paciente nulo.");
             return;
+        }
+        for (int i = 0; i < this.noPacientes; i++) {
+            if (this.pacientes[i] == paciente) {
+                System.out.println("Aviso: El paciente " + paciente.getNombre() + " ya está registrado en el hospital.");
+                return;
+            }
         }
 
         if (this.noPacientes == this.pacientes.length) {

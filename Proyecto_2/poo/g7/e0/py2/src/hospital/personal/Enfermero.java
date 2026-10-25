@@ -61,7 +61,11 @@ public abstract class Enfermero implements AtencionMedica {
     }
 
     public Paciente[] getPacientesAsignados() {
-        return this.pacientesAsignados;
+        Paciente[] copia = new Paciente[this.noPacientes];
+        for (int i = 0; i < this.noPacientes; i++) {
+            copia[i] = this.pacientesAsignados[i];
+        }
+        return copia;
     }
 
     public void registroEnSistema(Sistema sistema) {
@@ -81,6 +85,13 @@ public abstract class Enfermero implements AtencionMedica {
             System.out.println("Error: El enfermero " + this.nombre + " (" + this.especialidad 
                     + ") no puede atender al paciente " + paciente.getNombre() + " (" + paciente.getEspecialidad() + ").");
             return false;
+        }
+
+        for (int i = 0; i < this.noPacientes; i++) {
+            if (this.pacientesAsignados[i] == paciente) {
+                System.out.println("Aviso: El paciente " + paciente.getNombre() + " ya está asignado a este enfermero.");
+                return false;
+            }
         }
 
         if (this.noPacientes >= MAX_PACIENTES) {
