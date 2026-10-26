@@ -8,8 +8,11 @@ import hospital.sistema.Sistema;
  * Clase abstracta base que representa a un Enfermero/a del sistema hospitalario.
  * Encapsulamiento estricto:
  * - 'nombre', 'cedula' y 'especialidad' son private final (inmutables, solo getters, sin setters).
- * - 'pacientesAsignados' limitado a 3 pacientes simultáneos.
- * - Implementa Merge Sort nativo descendente O(n log n).
+ * - 'pacientesAsignados' limitado a un máximo de 3 pacientes simultáneos.
+ * - Implementa Merge Sort nativo descendente O(n log n) para listar pacientes en orden alfabético inverso (Z-A).
+ * 
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 2.0
  */
 public abstract class Enfermero implements AtencionMedica {
     private final String nombre; // Inmutable
@@ -18,8 +21,16 @@ public abstract class Enfermero implements AtencionMedica {
     private int noPacientes;
     private Paciente[] pacientesAsignados;
 
+    /** Capacidad máxima de pacientes que un enfermero puede cuidar simultáneamente. */
     public static final int MAX_PACIENTES = 3;
 
+    /**
+     * Construye un enfermero con nombre, cédula profesional y especialidad.
+     * 
+     * @param nombre Nombre del profesional de enfermería.
+     * @param cedula Cédula profesional.
+     * @param especialidad Especialidad clínica del enfermero.
+     */
     public Enfermero(String nombre, String cedula, String especialidad) {
         if (nombre == null || nombre.trim().isEmpty()) {
             this.nombre = "ENFERMERO_DESCONOCIDO";
@@ -43,23 +54,47 @@ public abstract class Enfermero implements AtencionMedica {
         this.pacientesAsignados = new Paciente[MAX_PACIENTES];
     }
 
-    // Solo Getters para atributos inmutables (sin setters)
+    /**
+     * Obtiene el nombre del enfermero.
+     * 
+     * @return Nombre del enfermero (inmutable).
+     */
     public String getNombre() {
         return this.nombre;
     }
 
+    /**
+     * Obtiene la cédula profesional del enfermero.
+     * 
+     * @return Cédula profesional (inmutable).
+     */
     public String getCedula() {
         return this.cedula;
     }
 
+    /**
+     * Obtiene la especialidad del enfermero.
+     * 
+     * @return Especialidad en mayúsculas (inmutable).
+     */
     public String getEspecialidad() {
         return this.especialidad;
     }
 
+    /**
+     * Obtiene el número actual de pacientes asignados.
+     * 
+     * @return Número de pacientes asignados (máximo 3).
+     */
     public int getNoPacientes() {
         return this.noPacientes;
     }
 
+    /**
+     * Retorna una copia segura del arreglo de pacientes asignados.
+     * 
+     * @return Arreglo nuevo con los pacientes asignados actuales.
+     */
     public Paciente[] getPacientesAsignados() {
         Paciente[] copia = new Paciente[this.noPacientes];
         for (int i = 0; i < this.noPacientes; i++) {
@@ -68,6 +103,11 @@ public abstract class Enfermero implements AtencionMedica {
         return copia;
     }
 
+    /**
+     * Registra formalmente al enfermero en el sistema hospitalario central.
+     * 
+     * @param sistema Instancia central del hospital.
+     */
     public void registroEnSistema(Sistema sistema) {
         if (sistema != null) {
             sistema.registrarEnfermero(this);
@@ -76,8 +116,20 @@ public abstract class Enfermero implements AtencionMedica {
         }
     }
 
+    /**
+     * Evalúa polimórficamente si el enfermero puede atender y cuidar al paciente dado.
+     * 
+     * @param paciente Paciente a evaluar.
+     * @return true si cumple con el perfil clínico correspondiente, false de lo contrario.
+     */
     public abstract boolean puedeAtender(Paciente paciente);
 
+    /**
+     * Admite y asigna un paciente al cuidado del enfermero si no supera la capacidad máxima de 3.
+     * 
+     * @param paciente Paciente a admitir.
+     * @return true si fue admitido exitosamente, false si no es compatible o ya tiene 3 pacientes.
+     */
     public boolean admitirPaciente(Paciente paciente) {
         if (paciente == null) return false;
 
@@ -107,6 +159,11 @@ public abstract class Enfermero implements AtencionMedica {
         return true;
     }
 
+    /**
+     * Realiza la valoración inicial de enfermería, toma de signos vitales y control clínico.
+     * 
+     * @param paciente Paciente valorado.
+     */
     @Override
     public void darConsulta(Paciente paciente) {
         if (paciente == null) return;
@@ -115,6 +172,11 @@ public abstract class Enfermero implements AtencionMedica {
         System.out.println("El personal de enfermería " + this.nombre + " toma signos vitales y evalúa a: " + paciente.getNombre());
     }
 
+    /**
+     * Administra el tratamiento prescrito previamente al paciente.
+     * 
+     * @param paciente Paciente receptor del tratamiento.
+     */
     @Override
     public void darTratamiento(Paciente paciente) {
         if (paciente == null) return;
@@ -124,6 +186,12 @@ public abstract class Enfermero implements AtencionMedica {
                 + paciente.getNombre() + ": " + paciente.getTratamiento());
     }
 
+    /**
+     * Administra cuidados específicos o un medicamento con indicación detallada al paciente.
+     * 
+     * @param paciente Paciente receptor del cuidado.
+     * @param indicacion Indicación o medicamento administrado.
+     */
     @Override
     public void darTratamiento(Paciente paciente, String indicacion) {
         if (paciente == null) return;
@@ -134,6 +202,10 @@ public abstract class Enfermero implements AtencionMedica {
                 + paciente.getNombre() + ": " + indicacion);
     }
 
+    /**
+     * Muestra en consola la lista de pacientes asignados al enfermero, ordenados alfabéticamente
+     * de forma descendente (Z-A) utilizando Merge Sort nativo.
+     */
     public void verListaPacientes() {
         System.out.println("\n--- Lista de Pacientes: Enfermero " + this.nombre + " (" + getCargo() + ") ---");
         System.out.println("Cédula: " + this.cedula + " | Especialidad: " + this.especialidad + " | Total: " + this.noPacientes + "/" + MAX_PACIENTES);
@@ -162,6 +234,13 @@ public abstract class Enfermero implements AtencionMedica {
         }
     }
 
+    /**
+     * Ordena recursivamente los pacientes mediante el algoritmo Merge Sort descendente.
+     * 
+     * @param arreglo Arreglo de pacientes.
+     * @param izquierda Índice inicial del rango.
+     * @param derecha Índice final del rango.
+     */
     private void mergeSortDescendente(Paciente[] arreglo, int izquierda, int derecha) {
         if (izquierda < derecha) {
             int medio = izquierda + (derecha - izquierda) / 2;
@@ -171,6 +250,14 @@ public abstract class Enfermero implements AtencionMedica {
         }
     }
 
+    /**
+     * Mezcla dos subarreglos ordenados en orden alfabético inverso (Z-A).
+     * 
+     * @param arreglo Arreglo a mezclar.
+     * @param izquierda Límite izquierdo.
+     * @param medio Índice central de división.
+     * @param derecha Límite derecho.
+     */
     private void mezclarDescendente(Paciente[] arreglo, int izquierda, int medio, int derecha) {
         int n1 = medio - izquierda + 1;
         int n2 = derecha - medio;
@@ -210,8 +297,18 @@ public abstract class Enfermero implements AtencionMedica {
         }
     }
 
+    /**
+     * Retorna la denominación específica del cargo de enfermería.
+     * 
+     * @return Nombre del cargo desempeñado.
+     */
     public abstract String getCargo();
 
+    /**
+     * Retorna una representación textual concisa del enfermero.
+     * 
+     * @return Cadena formateada con cargo, nombre, cédula y especialidad.
+     */
     @Override
     public String toString() {
         return getCargo() + ": " + this.nombre + " (Cédula: " + this.cedula + ", " + this.especialidad + ")";

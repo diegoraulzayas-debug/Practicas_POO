@@ -9,23 +9,45 @@ import hospital.pacientes.Paciente;
  * Emplea polimorfismo dinámico: maneja arreglos polimórficos de Medico[], Enfermero[] y Paciente[],
  * permitiendo almacenar cualquier subclase sin crear estructuras independientes.
  * Crecimiento dinámico automático: cuando los arreglos se llenan, se redimensionan al doble.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 2.0
  */
 public class Sistema {
+    /** Nombre oficial del centro hospitalario. */
     private String nombreHospital;
+    /** Arreglo polimórfico que almacena a los médicos adscritos al hospital. */
     private Medico[] medicos;
+    /** Contador del número actual de médicos registrados. */
     private int noMedicos;
+    /** Arreglo polimórfico que almacena al personal de enfermería adscrito. */
     private Enfermero[] enfermeros;
+    /** Contador del número actual de enfermeros registrados. */
     private int noEnfermeros;
+    /** Arreglo polimórfico que almacena a los pacientes ingresados. */
     private Paciente[] pacientes;
+    /** Contador del número actual de pacientes ingresados. */
     private int noPacientes;
+    /** Arreglo que almacena las actas administrativas y reportes levantados. */
     private ActaAdministrativa[] actasAdministrativas;
+    /** Contador del número actual de actas administrativas registradas. */
     private int noActas;
 
+    /** Capacidad inicial por defecto para el arreglo de médicos. */
     public static final int CAPACIDAD_INICIAL_MEDICOS = 50;
+    /** Capacidad inicial por defecto para el arreglo de enfermeros. */
     public static final int CAPACIDAD_INICIAL_ENFERMEROS = 100;
+    /** Capacidad inicial por defecto para el arreglo de pacientes. */
     public static final int CAPACIDAD_INICIAL_PACIENTES = 10;
+    /** Capacidad inicial por defecto para el arreglo de actas administrativas. */
     public static final int CAPACIDAD_INICIAL_ACTAS = 20;
 
+    /**
+     * Constructor que inicializa el sistema hospitalario con un nombre personalizado
+     * y capacidades iniciales para los arreglos dinámicos.
+     *
+     * @param nombreHospital Nombre institucional del hospital.
+     */
     public Sistema(String nombreHospital) {
         setNombreHospital(nombreHospital);
         this.medicos = new Medico[CAPACIDAD_INICIAL_MEDICOS];
@@ -38,14 +60,27 @@ public class Sistema {
         this.noActas = 0;
     }
 
+    /**
+     * Constructor por defecto que asigna el nombre "Hospital Central Universitario".
+     */
     public Sistema() {
         this("Hospital Central Universitario");
     }
 
+    /**
+     * Obtiene el nombre del hospital.
+     *
+     * @return Cadena de texto con el nombre institucional.
+     */
     public String getNombreHospital() {
         return this.nombreHospital;
     }
 
+    /**
+     * Establece o actualiza el nombre del hospital con validación de valores nulos o vacíos.
+     *
+     * @param nombreHospital Nuevo nombre del hospital.
+     */
     public void setNombreHospital(String nombreHospital) {
         if (nombreHospital == null || nombreHospital.trim().isEmpty()) {
             this.nombreHospital = "Hospital General";
@@ -54,38 +89,84 @@ public class Sistema {
         }
     }
 
+    /**
+     * Obtiene el arreglo polimórfico de médicos registrados.
+     *
+     * @return Arreglo de instancias de {@link Medico}.
+     */
     public Medico[] getMedicos() {
         return this.medicos;
     }
 
+    /**
+     * Obtiene el número de médicos actualmente registrados.
+     *
+     * @return Cantidad de médicos.
+     */
     public int getNoMedicos() {
         return this.noMedicos;
     }
 
+    /**
+     * Obtiene el arreglo polimórfico del personal de enfermería.
+     *
+     * @return Arreglo de instancias de {@link Enfermero}.
+     */
     public Enfermero[] getEnfermeros() {
         return this.enfermeros;
     }
 
+    /**
+     * Obtiene el número de enfermeros actualmente registrados.
+     *
+     * @return Cantidad de enfermeros.
+     */
     public int getNoEnfermeros() {
         return this.noEnfermeros;
     }
 
+    /**
+     * Obtiene el arreglo polimórfico de pacientes ingresados en el hospital.
+     *
+     * @return Arreglo de instancias de {@link Paciente}.
+     */
     public Paciente[] getPacientes() {
         return this.pacientes;
     }
 
+    /**
+     * Obtiene el número de pacientes actualmente registrados.
+     *
+     * @return Cantidad de pacientes.
+     */
     public int getNoPacientes() {
         return this.noPacientes;
     }
 
+    /**
+     * Obtiene el arreglo de actas administrativas registradas.
+     *
+     * @return Arreglo de instancias de {@link ActaAdministrativa}.
+     */
     public ActaAdministrativa[] getActasAdministrativas() {
         return this.actasAdministrativas;
     }
 
+    /**
+     * Obtiene el total de actas administrativas emitidas.
+     *
+     * @return Cantidad de actas administrativas.
+     */
     public int getNoActas() {
         return this.noActas;
     }
 
+    /**
+     * Registra un acta administrativa en el sistema, redimensionando dinámicamente
+     * el arreglo si se alcanza la capacidad máxima actual.
+     *
+     * @param acta Instancia de {@link ActaAdministrativa} a registrar.
+     */
     public void registrarActa(ActaAdministrativa acta) {
         if (acta == null) {
             System.out.println("Error: No se puede registrar un acta nula.");
@@ -103,6 +184,10 @@ public class Sistema {
         System.out.println("Acta Administrativa folio ACTA-" + acta.getFolio() + " registrada con éxito en el sistema.");
     }
 
+    /**
+     * Despliega en consola el listado completo y detalle de todas las actas
+     * administrativas levantadas en el hospital.
+     */
     public void listarActas() {
         System.out.println("\n=== REGISTRO GENERAL DE ACTAS ADMINISTRATIVAS (" + this.noActas + ") ===");
         if (this.noActas == 0) {
@@ -114,7 +199,12 @@ public class Sistema {
         }
     }
 
-    // Registro polimórfico de médicos con crecimiento dinámico de arreglo
+    /**
+     * Registra un médico en el hospital aplicando polimorfismo dinámico.
+     * Evita duplicados y redimensiona el arreglo dinámico al doble si se llena.
+     *
+     * @param medico Instancia de {@link Medico} (general o especialista) a registrar.
+     */
     public void registrarMedico(Medico medico) {
         if (medico == null) {
             System.out.println("Error: No se puede registrar un médico nulo.");
@@ -138,7 +228,12 @@ public class Sistema {
         System.out.println(medico.getTipoMedico() + " Dr./Dra. " + medico.getNombre() + " registrado exitosamente.");
     }
 
-    // Registro polimórfico de enfermeros con crecimiento dinámico de arreglo
+    /**
+     * Registra un enfermero en el hospital aplicando polimorfismo dinámico.
+     * Evita duplicados y redimensiona el arreglo dinámico al doble si se llena.
+     *
+     * @param enfermero Instancia de {@link Enfermero} (especialista o jefe) a registrar.
+     */
     public void registrarEnfermero(Enfermero enfermero) {
         if (enfermero == null) {
             System.out.println("Error: No se puede registrar un enfermero nulo.");
@@ -162,7 +257,12 @@ public class Sistema {
         System.out.println(enfermero.getCargo() + " " + enfermero.getNombre() + " registrado exitosamente.");
     }
 
-    // Registro polimórfico de pacientes con crecimiento dinámico de arreglo
+    /**
+     * Registra un paciente en el sistema general aplicando polimorfismo dinámico.
+     * Evita duplicados y redimensiona el arreglo dinámico al doble si se llena.
+     *
+     * @param paciente Instancia de {@link Paciente} (general o de especialidad) a registrar.
+     */
     public void registrarPaciente(Paciente paciente) {
         if (paciente == null) {
             System.out.println("Error: No se puede registrar un paciente nulo.");
@@ -187,7 +287,13 @@ public class Sistema {
         System.out.println("Paciente " + paciente.getNombre() + " registrado en el sistema (" + paciente.obtenerTipoCondicion() + ").");
     }
 
-    // Polimorfismo estático (Sobrecarga de método): Asignación a Médico
+    /**
+     * Asigna un paciente a un médico verificando la compatibilidad clínica de especialidad.
+     * Demuestra polimorfismo estático mediante sobrecarga de métodos.
+     *
+     * @param paciente Paciente a admitir.
+     * @param medico Médico al cual se asignará el paciente.
+     */
     public void asignarPaciente(Paciente paciente, Medico medico) {
         if (paciente == null || medico == null) {
             System.out.println("Error: Datos no válidos para asignación a médico.");
@@ -201,7 +307,13 @@ public class Sistema {
         medico.admitirPaciente(paciente);
     }
 
-    // Polimorfismo estático (Sobrecarga de método): Asignación a Enfermero
+    /**
+     * Asigna un paciente a un enfermero verificando la compatibilidad clínica de especialidad.
+     * Demuestra polimorfismo estático mediante sobrecarga de métodos.
+     *
+     * @param paciente Paciente a admitir.
+     * @param enfermero Enfermero al cual se asignará el paciente.
+     */
     public void asignarPaciente(Paciente paciente, Enfermero enfermero) {
         if (paciente == null || enfermero == null) {
             System.out.println("Error: Datos no válidos para asignación a enfermero.");
@@ -215,7 +327,12 @@ public class Sistema {
         enfermero.admitirPaciente(paciente);
     }
 
-    // Asignación automática inteligente respetando reglas de especialidad y cupos
+    /**
+     * Realiza una asignación automática de un paciente buscando el primer médico compatible
+     * por especialidad que cuente con cupo disponible.
+     *
+     * @param paciente Paciente que requiere asignación médica.
+     */
     public void asignarPacienteAutomatico(Paciente paciente) {
         if (paciente == null) return;
 
@@ -229,7 +346,10 @@ public class Sistema {
         System.out.println("No hay médico disponible con cupo para la especialidad " + paciente.getEspecialidad() + " del paciente " + paciente.getNombre());
     }
 
-    // Resumen general del hospital
+    /**
+     * Despliega en consola un resumen general con las estadísticas operativas del hospital:
+     * cantidad de médicos, enfermeros, pacientes y actas administrativas.
+     */
     public void mostrarEstadisticas() {
         System.out.println("\n=======================================================");
         System.out.println("       ESTADO ACTUAL DEL HOSPITAL: " + this.nombreHospital);

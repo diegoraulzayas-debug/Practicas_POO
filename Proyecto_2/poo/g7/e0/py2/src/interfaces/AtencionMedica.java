@@ -6,6 +6,9 @@ import hospital.pacientes.Paciente;
  * Interfaz que define las operaciones fundamentales de atención médica
  * que debe brindar cualquier profesional clínico (Médicos y Enfermeros).
  * Empaquetada como módulo/JAR para promover alta cohesión y bajo acoplamiento.
+ * 
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 2.0
  */
 public interface AtencionMedica {
     

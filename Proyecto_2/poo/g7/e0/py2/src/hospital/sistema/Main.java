@@ -13,12 +13,28 @@ import hospital.pacientes.PacienteGeneral;
 import hospital.pacientes.PacienteEspecialidad;
 
 /**
- * Clase principal interactiva del sistema hospitalario.
- * Estilo estándar: lectura directa con scanner.nextInt() y scanner.nextLine()
- * sin bloques try-catch ni manejo de excepciones no visto en clase.
+ * Clase principal interactiva del sistema de gestión hospitalaria (Etapa 2).
+ * Proporciona menús en consola para la interacción con médicos, enfermeros, pacientes,
+ * actas administrativas y demostraciones dinámicas y estáticas de polimorfismo.
+ *
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @version 2.0
  */
 public class Main {
 
+    /**
+     * Constructor privado para prevenir la instanciación directa de la clase utilitaria y punto de entrada.
+     */
+    private Main() {
+    }
+
+    /**
+     * Punto de entrada principal de la aplicación.
+     * Inicializa el sistema hospitalario, carga datos de prueba iniciales
+     * y ejecuta el bucle del menú principal.
+     *
+     * @param args Argumentos de la línea de comandos pasados a la aplicación.
+     */
     public static void main(String[] args) {
         Sistema hospital = new Sistema("Hospital General de Especialidades Médicas");
         java.util.Scanner scanner = new java.util.Scanner(System.in);
@@ -68,6 +84,14 @@ public class Main {
         scanner.close();
     }
 
+    /**
+     * Despliega y gestiona el submenú de operaciones para médicos generales y especialistas.
+     * Permite registrar médicos, solicitar pacientes, dar consultas, emitir recetas y dictámenes,
+     * y listar pacientes ordenados alfabéticamente de forma descendente mediante Merge Sort.
+     *
+     * @param hospital Instancia del sistema hospitalario donde operan los médicos.
+     * @param scanner Lector para capturar la entrada del usuario en consola.
+     */
     public static void menuMedico(Sistema hospital, Scanner scanner) {
         int opcion = 0;
         do {
@@ -195,6 +219,14 @@ public class Main {
         } while (opcion != 8);
     }
 
+    /**
+     * Despliega y gestiona el submenú de operaciones para el personal de enfermería.
+     * Permite registrar enfermeros especialistas y jefes de enfermería, asignar pacientes,
+     * administrar cuidados, supervisar guardias de piso, dictaminar actas y visualizar pacientes.
+     *
+     * @param hospital Instancia del sistema hospitalario.
+     * @param scanner Lector para capturar la entrada del usuario en consola.
+     */
     public static void menuEnfermero(Sistema hospital, Scanner scanner) {
         int opcion = 0;
         do {
@@ -333,6 +365,14 @@ public class Main {
         } while (opcion != 8);
     }
 
+    /**
+     * Despliega y gestiona el submenú de operaciones para pacientes generales y de especialidad.
+     * Permite registrar pacientes, solicitar consultas médicas, consultar tratamientos
+     * prescritos y levantar quejas o actas administrativas contra el personal de enfermería.
+     *
+     * @param hospital Instancia del sistema hospitalario.
+     * @param scanner Lector para capturar la entrada del usuario en consola.
+     */
     public static void menuPaciente(Sistema hospital, Scanner scanner) {
         int opcion = 0;
         do {
@@ -419,6 +459,14 @@ public class Main {
         } while (opcion != 7);
     }
 
+    /**
+     * Ejecuta una serie de demostraciones didácticas de polimorfismo dinámico y estático:
+     * 1) Invocación polimórfica a través de la interfaz {@link AtencionMedica}.
+     * 2) Invocación polimórfica mediante la jerarquía de clases abstractas de {@link Paciente}.
+     * 3) Polimorfismo estático mediante sobrecarga de métodos (Overloading).
+     *
+     * @param hospital Instancia del sistema hospitalario base.
+     */
     public static void demostrarPolimorfismo(Sistema hospital) {
         System.out.println("\n=======================================================");
         System.out.println("      DEMOSTRACIÓN DE POLIMORFISMO (ESTÁTICO Y DINÁMICO)");
@@ -465,6 +513,13 @@ public class Main {
         System.out.println("\nDemostración finalizada exitosamente.");
     }
 
+    /**
+     * Muestra una lista interactiva de médicos registrados y solicita al usuario seleccionar uno.
+     *
+     * @param hospital Instancia del sistema hospitalario.
+     * @param scanner Lector para capturar el índice seleccionado por el usuario.
+     * @return Instancia del {@link Medico} seleccionado, o {@code null} si no hay médicos o la selección es inválida.
+     */
     private static Medico seleccionarMedico(Sistema hospital, Scanner scanner) {
         if (hospital.getNoMedicos() == 0) {
             System.out.println("No hay médicos registrados en el sistema.");
@@ -484,6 +539,13 @@ public class Main {
         return null;
     }
 
+    /**
+     * Muestra una lista interactiva de enfermeros registrados y solicita al usuario seleccionar uno.
+     *
+     * @param hospital Instancia del sistema hospitalario.
+     * @param scanner Lector para capturar el índice seleccionado por el usuario.
+     * @return Instancia del {@link Enfermero} seleccionado, o {@code null} si no hay enfermeros o la selección es inválida.
+     */
     private static Enfermero seleccionarEnfermero(Sistema hospital, Scanner scanner) {
         if (hospital.getNoEnfermeros() == 0) {
             System.out.println("No hay enfermeros registrados en el sistema.");
@@ -503,6 +565,13 @@ public class Main {
         return null;
     }
 
+    /**
+     * Muestra una lista interactiva de pacientes registrados y solicita al usuario seleccionar uno.
+     *
+     * @param hospital Instancia del sistema hospitalario.
+     * @param scanner Lector para capturar el índice seleccionado por el usuario.
+     * @return Instancia del {@link Paciente} seleccionado, o {@code null} si no hay pacientes o la selección es inválida.
+     */
     private static Paciente seleccionarPaciente(Sistema hospital, Scanner scanner) {
         if (hospital.getNoPacientes() == 0) {
             System.out.println("No hay pacientes registrados en el sistema.");
@@ -522,6 +591,13 @@ public class Main {
         return null;
     }
 
+    /**
+     * Inicializa el hospital con un conjunto predefinido de médicos generales,
+     * médicos especialistas, enfermeros especialistas, jefes de enfermería y pacientes
+     * para facilitar pruebas inmediatas del sistema.
+     *
+     * @param hospital Instancia del sistema hospitalario donde se registrarán los datos iniciales.
+     */
     private static void cargarDatosDePrueba(Sistema hospital) {
         MedicoGeneral mg1 = new MedicoGeneral("DR. ROBERTO SALAS", "10101", "Consultorio 3A");
         MedicoEspecialista me1 = new MedicoEspecialista("DRA. CLARA MENDEZ", "20202", "CARDIOLOGIA", 12, "Ecocardiografía");
