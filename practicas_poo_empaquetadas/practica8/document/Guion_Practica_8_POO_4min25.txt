@@ -1,0 +1,62 @@
+GUION — PRÁCTICA 8: INTERFACES Y HUELLA DE CARBONO
+Duración objetivo: 4 minutos con 25 segundos
+
+1. INTRODUCCIÓN Y OBJETIVOS
+
+NARRADOR — 0:00 a 0:23 (23 segundos)
+Hola, en este video presentaremos la práctica ocho de Programación Orientada a Objetos. El trabajo aborda dos temas: el análisis de distintas respuestas de modelos de lenguaje sobre interfaces gráficas de inicio de sesión, y la implementación de un programa en Java para calcular la huella de carbono de un edificio, un automóvil y una bicicleta.
+
+NARRADOR — 0:23 a 0:39 (16 segundos)
+Los objetivos son comparar las respuestas de inteligencia artificial, comprender el uso de interfaces y el polimorfismo dinámico, e implementar clases independientes que compartan un método para consultar su huella de carbono.
+
+2. MARCO TEÓRICO
+
+REDACTOR — 0:39 a 0:57 (18 segundos)
+Una interfaz en Java establece un contrato de comportamiento: define métodos que las clases que la implementan deben proporcionar. A diferencia de la herencia, no exige que las clases estén relacionadas entre sí, así que permite tratar distintos objetos de una forma común.
+
+NARRADOR — 0:57 a 1:13 (16 segundos)
+El polimorfismo dinámico permite que una llamada a un método se resuelva en tiempo de ejecución según el objeto real. Para reunir esos objetos usamos ArrayList, una colección redimensionable. En las interfaces gráficas, la programación dirigida por eventos hace que el programa responda a acciones como clics y pulsaciones de teclado.
+
+3. ANÁLISIS DE LAS RESPUESTAS DE LOS MODELOS DE LENGUAJE
+
+REDACTOR — 1:13 a 1:31 (18 segundos)
+La primera consulta solicitó código funcional y explicaciones, limitando las opciones a JavaFX o AWT. El modelo eligió JavaFX y explicó sus componentes, pero usó credenciales fijas y cadenas de texto para recuperar la contraseña, sin profundizar en la seguridad de la memoria.
+
+NARRADOR — 1:31 a 1:48 (17 segundos)
+La segunda consulta fue más abierta, por lo que el modelo eligió Swing y AWT. Propuso una interfaz funcional y utilizó un arreglo de caracteres para la contraseña, que sobrescribió después de validarla. Sin embargo, explicó menos la teoría detrás de las clases empleadas.
+
+REDACTOR — 1:48 a 2:06 (18 segundos)
+La tercera consulta incluyó requisitos técnicos más específicos, como alternar la visibilidad de la contraseña, mostrar mensajes de estado y separar responsabilidades. La respuesta propuso una estructura basada en Modelo-Vista-Controlador y un manejo más cuidadoso de los arreglos de caracteres.
+
+NARRADOR — 2:06 a 2:22 (16 segundos)
+La cuarta consulta pidió una explicación conceptual, sin exigir código ejecutable. Por eso, la respuesta comparó Swing, JavaFX y AWT, y explicó herramientas de desarrollo y diagramas del flujo de autenticación. En general, el análisis mostró que las instrucciones más precisas producen respuestas más ajustadas a los requisitos.
+
+4. IMPLEMENTACIÓN DEL PROGRAMA DE HUELLA DE CARBONO
+
+DESARROLLADOR — 2:22 a 2:40 (18 segundos)
+La segunda actividad implementa tres clases independientes: Auto, Bicicleta y Edificio. Aunque no comparten una relación de herencia, las tres implementan la interfaz HuellaCarbono, que declara el método getHuellaCarbono para consultar las emisiones de cada objeto.
+
+NARRADOR — 2:40 a 2:55 (15 segundos)
+Cada clase conserva sus propios atributos y operaciones. Auto almacena la distancia recorrida y el rendimiento de combustible; Bicicleta registra la distancia y el material del cuadro; y Edificio representa su superficie, cantidad de niveles y consumo eléctrico por unidad de área.
+
+DESARROLLADOR — 2:55 a 3:14 (19 segundos)
+Para el automóvil, el programa calcula los litros consumidos dividiendo los kilómetros recorridos entre el rendimiento y multiplica el resultado por el factor de emisión de 2.31 kilogramos de dióxido de carbono por litro. Para la bicicleta, el factor por kilómetro depende del material del cuadro.
+
+DESARROLLADOR — 3:14 a 3:30 (16 segundos)
+En el edificio se calcula el consumo energético a partir de la superficie y el consumo por metro cuadrado, y luego se aplica el factor de 0.45 kilogramos de dióxido de carbono por kilovatio-hora. Además, cada clase redefine toString para mostrar una descripción de sus parámetros.
+
+EDITOR — 3:30 a 3:44 (14 segundos)
+En Main se crean los tres objetos con datos de prueba y se guardan en una lista de tipo HuellaCarbono. Después, un ciclo for each recorre la colección y llama al método correspondiente de cada instancia, mostrando su descripción y su huella de carbono.
+
+5. RESULTADOS Y EVIDENCIAS
+
+EDITOR — 3:44 a 3:58 (14 segundos)
+La ejecución permitió compilar y probar el programa con los valores definidos para las tres entidades. Las evidencias incluyen la salida de la terminal, el diagrama UML de clases y diagramas individuales de Auto, Bicicleta, Edificio y Main.
+
+DIAGRAMADOR — 3:58 a 4:12 (14 segundos)
+El diagrama UML permite observar que las tres clases implementan una misma interfaz sin depender de una jerarquía de herencia. Los diagramas individuales muestran los atributos y métodos propios de cada entidad, así como el recorrido que realiza la clase principal.
+
+6. CONCLUSIONES Y DESPEDIDA
+
+NARRADOR — 4:12 a 4:25 (13 segundos)
+En conclusión, la interfaz permitió unificar el cálculo de la huella de carbono de objetos diferentes y aplicar polimorfismo dinámico mediante una colección común. Además, el análisis de las respuestas mostró la importancia de formular instrucciones claras y considerar la seguridad al diseñar interfaces gráficas. Gracias por su atención.
