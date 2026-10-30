@@ -2,10 +2,10 @@ package mx.unam.fi.die.poo.g7.practicas.practica10;
 
 /**
  * Modela a un empleado del sistema hospitalario con validaciones defensivas
- * de límites y tipos de datos durante su instanciación.
+ * de límites y tipos de datos durante su instanciación en el constructor.
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
- * @version 1.0
+ * @version 1.0.0, POO UNAM FI 2026
  */
 public class Empleado {
 
@@ -26,10 +26,10 @@ public class Empleado {
      * Construye un nuevo objeto {@code Empleado} aplicando validaciones defensivas
      * sobre los límites de horas, el rol permitido y el formato numérico del identificador.
      *
-     * @param nombre Nombre completo del empleado.
+     * @param nombre Nombre completo del empleado a registrar.
      * @param rol Rol asignado dentro del sistema ("MEDICO" o "ENFERMERO").
      * @param textoIdentificador Cadena de texto que representa el identificador numérico del empleado.
-     * @param horasAsignadas Número de horas mensuales asignadas (debe estar entre 1 y 80).
+     * @param horasAsignadas Número de horas mensuales asignadas (debe estar en el rango cerrado [1 - 80]).
      * @throws IndexOutOfBoundsException Si {@code horasAsignadas} está fuera del rango permitido [1 - 80].
      * @throws IllegalArgumentException Si el {@code rol} no es compatible o si {@code textoIdentificador} no es numérico.
      * @throws Exception Si ocurre algún error general durante la validación en la construcción.
@@ -70,6 +70,42 @@ public class Empleado {
         this.rol = rol.toUpperCase();
         this.horasAsignadas = horasAsignadas;
         System.out.println("[Constructor Empleado] Objeto instanciado correctamente.");
+    }
+
+    /**
+     * Obtiene el nombre completo del empleado.
+     *
+     * @return El nombre del empleado.
+     */
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    /**
+     * Obtiene el rol profesional del empleado en el hospital ("MEDICO" o "ENFERMERO").
+     *
+     * @return El rol asignado al empleado en mayúsculas.
+     */
+    public String getRol() {
+        return this.rol;
+    }
+
+    /**
+     * Obtiene el número identificador único asignado al empleado.
+     *
+     * @return El número identificador numérico.
+     */
+    public int getNumeroIdentificador() {
+        return this.numeroIdentificador;
+    }
+
+    /**
+     * Obtiene la cantidad de horas mensuales asignadas al empleado.
+     *
+     * @return Las horas de trabajo mensuales asignadas (entre 1 y 80).
+     */
+    public int getHorasAsignadas() {
+        return this.horasAsignadas;
     }
 
     /**

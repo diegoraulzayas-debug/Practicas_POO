@@ -1,25 +1,26 @@
 package mx.unam.fi.die.poo.g7.practicas.practica10;
 
 /**
- * Clase principal de ejecución para demostrar el manejo de excepciones
+ * Clase principal de ejecución para demostrar el manejo defensivo de excepciones
  * durante la construcción de objetos de tipo {@link Empleado}.
  * Ejecuta casos de prueba para errores de límite, tipos incompatibles,
  * formato numérico inválido e instanciación exitosa.
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
- * @version 1.0
+ * @version 1.0.0, POO UNAM FI 2026
  */
 public class Main {
 
     /**
-     * Constructor por defecto de la clase Main.
+     * Constructor por defecto de la clase controladora {@code Main}.
      */
     public Main() {
     }
 
     /**
      * Método principal que ejecuta los distintos escenarios de prueba
-     * invocando al constructor de {@link Empleado} con datos válidos e inválidos.
+     * invocando al método {@link #probarConstructor(String, String, String, int)}
+     * con combinaciones de datos válidos e inválidos.
      *
      * @param args Argumentos de la línea de comandos (no utilizados).
      */
@@ -48,9 +49,9 @@ public class Main {
      * específicas y verificando el estado final de la referencia en memoria.
      *
      * @param nombre Nombre completo del empleado a registrar.
-     * @param rol Rol asignado al empleado dentro del sistema.
-     * @param id Cadena con el identificador del empleado (se espera numérico).
-     * @param horas Cantidad de horas mensuales asignadas al empleado.
+     * @param rol Rol asignado dentro del sistema hospitalario ("MEDICO" o "ENFERMERO").
+     * @param id Cadena con el identificador del empleado (se espera estrictamente numérico).
+     * @param horas Cantidad de horas mensuales asignadas al empleado (debe pertenecer al rango [1 - 80]).
      */
     public static void probarConstructor(String nombre, String rol, String id, int horas) {
         // Referencia al objeto Empleado inicializada en null antes de la construcción
