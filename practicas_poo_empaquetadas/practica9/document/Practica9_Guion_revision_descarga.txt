@@ -1,0 +1,56 @@
+﻿GUION — PRÁCTICA 9: DIAGRAMAS UML CON CARDINALIDAD Y SECUENCIA
+Duración objetivo: 4 minutos con 25 segundos
+
+1. INTRODUCCIÓN, MOTIVACIÓN Y OBJETIVOS
+
+NARRADOR — 0:00 a 0:23 (23 segundos)
+Hola. En esta práctica presentamos el modelado de las prácticas cinco, siete y ocho, además de la segunda etapa de nuestro proyecto, mediante diagramas de clases con cardinalidad y diagramas de secuencia. El propósito es representar tanto la estructura del software como el comportamiento de sus objetos durante la ejecución.
+
+REDACTOR — 0:23 a 0:42 (19 segundos)
+La motivación principal es aprender a utilizar el Lenguaje de Modelado Unificado, o UML, como un estándar visual para comunicar el diseño de un programa. No basta con dibujar relaciones que parezcan correctas: cada multiplicidad y cada mensaje deben justificarse con las instrucciones y el código fuente.
+
+NARRADOR — 0:42 a 1:00 (18 segundos)
+Por ello, nuestros objetivos fueron elaborar ambos tipos de diagramas para los cuatro sistemas y comprender sus elementos: participantes, multiplicidades, relaciones, líneas de vida, activaciones y mensajes. Así buscamos comprobar la consistencia entre el diseño estático y el comportamiento dinámico.
+
+2. MARCO TEÓRICO
+
+REDACTOR — 1:00 a 1:16 (16 segundos)
+UML permite representar clases, atributos, métodos y relaciones. En los diagramas de clases, los símbolos más, menos y numeral indican visibilidad pública, privada y protegida. La cardinalidad expresa cuántos objetos pueden relacionarse, por ejemplo, uno, cero o uno, o una cantidad indeterminada.
+
+DIAGRAMADOR — 1:16 a 1:32 (16 segundos)
+Por su parte, los diagramas de secuencia muestran cómo colaboran los objetos a lo largo del tiempo. Incluyen líneas de vida, barras de activación y mensajes; también pueden representar repeticiones con loop y alternativas con alt u opt.
+
+3. DESARROLLO: MODELADO DE LAS PRÁCTICAS
+
+DESARROLLADOR — 1:32 a 1:52 (20 segundos)
+En la práctica cinco se modelaron dos subsistemas independientes: Empleado y Fecha, junto con sus respectivos controladores. El diagrama refleja que MainEmpleado crea y compara dos empleados, mientras MainFecha instancia y modifica una fecha. La secuencia muestra la validación salarial, el cálculo anual, los incrementos y los cambios de día, mes y año.
+
+DIAGRAMADOR — 1:52 a 2:09 (17 segundos)
+En la práctica siete se representó la jerarquía Cuadrilatero, Trapezoide, Paralelogramo, Rectangulo y Cuadrado. También se mostró la composición de cuatro objetos Punto por cuadrilátero y las dependencias de MainFiguras. La secuencia documenta la creación de vértices, el encadenamiento de constructores mediante super y el cálculo de las áreas.
+
+DESARROLLADOR — 2:09 a 2:29 (20 segundos)
+En la práctica ocho se trabajó con la interfaz HuellaCarbono, implementada por Edificio, Auto y Bicicleta. Aunque son clases independientes, comparten el método getHuellaCarbono. El diagrama de clases muestra su realización de la interfaz y la colección polimórfica; el de secuencia representa la creación de objetos, su almacenamiento en un ArrayList y el recorrido que invoca dinámicamente el cálculo de emisiones.
+
+4. DESARROLLO: MODELADO DEL PROYECTO
+
+DESARROLLADOR — 2:29 a 2:52 (23 segundos)
+Para la etapa dos del proyecto se modeló un simulador hospitalario que administra personal clínico, pacientes, consultas, tratamientos y actas administrativas. El diagrama de clases organiza las jerarquías de médicos, enfermeros y pacientes, además de la interfaz AtencionMedica y las relaciones de agregación y asociación que representan las capacidades del sistema.
+
+NARRADOR — 2:52 a 3:13 (21 segundos)
+El diagrama de secuencia presenta el ciclo clínico completo: el sistema carga médicos, enfermeros y pacientes; después recibe solicitudes, evalúa las condiciones de atención y asigna cada paciente al profesional correspondiente. También representa las consultas, la prescripción de tratamientos y la supervisión de enfermería.
+
+EDITOR — 3:13 a 3:30 (17 segundos)
+Finalmente, el modelo incorpora un recorrido polimórfico mediante referencias de tipo AtencionMedica, así como la generación de estadísticas. De esta manera, la secuencia permite seguir el orden de las operaciones y reconocer qué objeto participa en cada etapa del proceso.
+
+5. RESULTADOS
+
+EDITOR — 3:30 a 3:48 (18 segundos)
+Como resultados se elaboraron diagramas de clases con cardinalidad y diagramas de secuencia para las prácticas cinco, siete y ocho, además de la etapa dos del proyecto. Las evidencias se presentan en las figuras de la práctica y en los diagramas complementarios disponibles en GitHub.
+
+DIAGRAMADOR — 3:48 a 4:03 (15 segundos)
+Al observarlos en conjunto, se distinguen las relaciones entre clases, sus límites de multiplicidad y la comunicación entre objetos. Cada representación corresponde a los elementos descritos en el desarrollo y permite contrastar el modelo con la implementación.
+
+6. CONCLUSIONES Y DESPEDIDA
+
+NARRADOR — 4:03 a 4:25 (22 segundos)
+En conclusión, la práctica permitió comprender que los diagramas UML no son únicamente representaciones gráficas: documentan las reglas y restricciones del software. La cardinalidad expresa las relaciones válidas entre objetos, mientras que la secuencia permite verificar el orden de las interacciones y el comportamiento polimórfico. Así cumplimos el objetivo de comunicar y justificar el diseño a partir del código. Gracias por su atención.
