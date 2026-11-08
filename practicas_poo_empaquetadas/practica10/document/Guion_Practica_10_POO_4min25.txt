@@ -1,0 +1,63 @@
+﻿GUION — PRÁCTICA 10: EXCEPCIONES Y VALIDACIÓN DEFENSIVA EN CONSTRUCTORES
+Duración objetivo: 4 minutos con 25 segundos
+
+1. INTRODUCCIÓN, MOTIVACIÓN Y OBJETIVOS
+
+NARRADOR — 0:00 a 0:24 (24 segundos)
+Hola. En este video presentaremos la práctica diez de Programación Orientada a Objetos. El trabajo aborda dos aspectos del manejo de errores en Java: el análisis de la jerarquía de la clase Error y de las excepciones frecuentes en interfaces gráficas, así como la validación de datos durante la construcción de objetos.
+
+REDACTOR — 0:24 a 0:43 (19 segundos)
+La motivación parte de desarrollar aplicaciones estables, capaces de impedir que datos incorrectos produzcan objetos en estados inconsistentes. También buscamos comprender cómo la forma de redactar una consulta influye en la precisión y profundidad de las respuestas generadas por modelos de lenguaje.
+
+NARRADOR — 0:43 a 0:59 (16 segundos)
+Por ello, nuestros objetivos fueron comparar explicaciones sobre Error y las excepciones en interfaces gráficas, implementar validaciones de rangos, restricciones de dominio y conversiones de datos, y comprobar mediante pruebas que una excepción puede interrumpir la creación de un objeto inválido.
+
+2. MARCO TEÓRICO
+
+REDACTOR — 0:59 a 1:15 (16 segundos)
+En Java, Throwable es la raíz de la jerarquía de elementos que pueden lanzarse y capturarse. De ella se derivan Exception, que representa condiciones que una aplicación puede gestionar, y Error, asociado principalmente con fallos críticos del entorno de ejecución o de la máquina virtual.
+
+NARRADOR — 1:15 a 1:34 (19 segundos)
+Entre los errores se encuentran OutOfMemoryError, relacionado con la falta de memoria disponible, y StackOverflowError, que puede producirse por llamadas recursivas descontroladas. En cambio, las excepciones incluyen problemas como NullPointerException y NumberFormatException. Algunas son comprobadas y requieren tratamiento explícito; las derivadas de RuntimeException no tienen esa obligación.
+
+3. ACTIVIDAD 1: ANÁLISIS DE RESPUESTAS DE MODELOS DE LENGUAJE
+
+REDACTOR — 1:34 a 1:52 (18 segundos)
+En la primera actividad consultamos distintos modelos de lenguaje sobre la jerarquía Error y las excepciones más comunes en interfaces gráficas. La primera consulta se realizó con preguntas breves y obtuvo una explicación amplia, aunque también incorporó ejemplos de plataformas externas a Java.
+
+NARRADOR — 1:52 a 2:08 (16 segundos)
+La segunda consulta reunió ambos temas en un solo mensaje y pidió explicaciones didácticas y concisas. La respuesta organizó las excepciones en una tabla y aclaró que no son exclusivas de las interfaces gráficas, sino que pueden surgir durante la interacción del usuario.
+
+REDACTOR — 2:08 a 2:24 (16 segundos)
+La tercera consulta estableció cuatro directrices: qué es cada concepto, cómo funciona, por qué importa y cómo se utiliza. Esto produjo una explicación más profunda sobre la máquina virtual, el modelo de eventos y el hilo encargado de las interfaces gráficas.
+
+NARRADOR — 2:24 a 2:43 (19 segundos)
+Al comparar las respuestas, observamos que las instrucciones y el nivel de detalle del prompt influyeron directamente en el resultado. Las consultas estructuradas favorecieron explicaciones técnicas más completas, mientras que las preguntas breves ofrecieron una visión general más rápida.
+
+4. ACTIVIDAD 2: VALIDACIÓN DEFENSIVA EN CONSTRUCTORES
+
+DESARROLLADOR — 2:43 a 3:04 (21 segundos)
+En la segunda actividad implementamos un programa con dos clases: Empleado y Main. Empleado encapsula el nombre, el rol, el identificador y las horas mensuales. Su constructor aplica tres filtros antes de asignar los atributos, de modo que el objeto solo se construye cuando los datos cumplen las reglas establecidas.
+
+DESARROLLADOR — 3:04 a 3:24 (20 segundos)
+El primer filtro limita las horas al intervalo de una a ochenta; si se excede, lanza IndexOutOfBoundsException. El segundo acepta únicamente los roles MEDICO y ENFERMERO, sin distinguir mayúsculas y minúsculas. Si el rol no es válido, lanza IllegalArgumentException.
+
+EDITOR — 3:24 a 3:42 (18 segundos)
+El tercer filtro convierte el identificador recibido como texto a un número entero. Si contiene caracteres no numéricos, se produce NumberFormatException, que se captura y se relanza como IllegalArgumentException con información contextual sobre el problema.
+
+DESARROLLADOR — 3:42 a 3:58 (16 segundos)
+La clase Main prueba la construcción mediante bloques try, catch y finally. La referencia al empleado comienza en null; si la construcción falla, permanece así. Si los tres filtros se superan, el objeto se crea y se muestra su información.
+
+5. RESULTADOS Y EVIDENCIAS
+
+EDITOR — 3:58 a 4:05 (7 segundos)
+Se probaron cuatro escenarios: horas fuera del rango, un rol no permitido, un identificador no numérico y datos válidos.
+
+DIAGRAMADOR — 4:05 a 4:12 (7 segundos)
+Las evidencias incluyen la ejecución en terminal, los diagramas UML con cardinalidad, el diagrama de secuencia y los diagramas de flujo.
+
+6. CONCLUSIONES Y DESPEDIDA
+
+NARRADOR — 4:12 a 4:25 (13 segundos)
+En conclusión, las pruebas confirmaron que validar desde el constructor evita objetos incompletos. Además, los prompts estructurados mejoraron el análisis técnico. Así cumplimos nuestros objetivos. Gracias por su atención.
+
