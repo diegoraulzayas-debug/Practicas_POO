@@ -1,0 +1,62 @@
+GUION — PRÁCTICA 11: LECTURA DE ARCHIVOS Y CONTEO DE PALABRAS CON GUI
+Duración objetivo: 4 minutos con 25 segundos
+
+1. INTRODUCCIÓN, MOTIVACIÓN Y OBJETIVOS
+
+NARRADOR — 0:00 a 0:23 (23 segundos)
+Hola. En esta práctica trabajamos con dos temas que se complementan: primero, comparamos respuestas de modelos de lenguaje sobre cómo crear cuadros de texto en interfaces gráficas de Java; después, desarrollamos un programa que lee un archivo de texto, cuenta sus palabras y muestra los resultados en una ventana.
+
+NARRADOR — 0:23 a 0:42 (19 segundos)
+La motivación fue llevar el programa un paso más allá de la terminal. Queríamos que pudiera trabajar con información guardada en un archivo y presentarla de una forma clara para el usuario, sin mezclar la lectura y el procesamiento de datos con los elementos visuales.
+
+REDACTOR — 0:42 a 1:00 (18 segundos)
+Con esto establecimos tres objetivos: comparar las explicaciones sobre cuadros de texto en Swing y JavaFX, implementar una clase que localice y lea archivos .txt para contar sus palabras, y construir una interfaz en Swing que muestre tanto el contenido como el total obtenido.
+
+2. MARCO TEÓRICO
+
+REDACTOR — 1:00 a 1:17 (17 segundos)
+Para la interfaz utilizamos Swing, una biblioteca de Java que permite organizar ventanas y componentes. Por ejemplo, JFrame funciona como ventana principal; JButton permite ejecutar una acción; JLabel muestra información breve, y JTextArea presenta varias líneas de texto. Con JScrollPane podemos desplazarnos cuando el contenido supera el espacio visible.
+
+NARRADOR — 1:17 a 1:33 (16 segundos)
+La interacción se basa en eventos: cuando el usuario presiona un botón, un ActionListener ejecuta la acción asociada. Para leer el archivo usamos FileReader y BufferedReader, que permiten recorrer el contenido por líneas. Además, IOException ayuda a controlar problemas como una ruta inexistente o un archivo que no se puede leer.
+
+3. DESARROLLO: ANÁLISIS DE LOS MODELOS DE LENGUAJE
+
+REDACTOR — 1:33 a 1:52 (19 segundos)
+En la primera actividad consultamos tres modelos sobre la creación de cuadros de texto con Swing y JavaFX. La primera respuesta, de Gemini Flash, fue práctica y directa: distinguió los campos de una línea de las áreas multilínea y proporcionó ejemplos completos, aunque explicó poco sobre cada instrucción.
+
+NARRADOR — 1:52 a 2:10 (18 segundos)
+La segunda respuesta, de ChatGPT, recibió una indicación más específica: explicar paso a paso cada clase y cada línea. Por eso ofreció un tutorial más detallado y aclaró, por ejemplo, que el número indicado al crear un JTextField representa el ancho sugerido en columnas, no un límite estricto de caracteres. Sin embargo, sus ejemplos principales no incluyeron botones activos para capturar el texto.
+
+REDACTOR — 2:10 a 2:28 (18 segundos)
+La tercera respuesta, de Gemini Pro, siguió una estructura de conceptos, buenas prácticas y ejemplos. Explicó el uso de contenedores, administradores de diseño y eventos; también presentó ejemplos breves con botones. Su explicación fue equilibrada, aunque dejó fuera los cuadros multilínea para mantener la sencillez.
+
+NARRADOR — 2:28 a 2:43 (15 segundos)
+Al comparar las tres, vimos que la forma de preguntar sí cambia el resultado. Una instrucción abierta produjo código rápido; pedir explicaciones línea por línea aumentó el detalle, y establecer una estructura permitió combinar conceptos con ejemplos funcionales.
+
+4. DESARROLLO: IMPLEMENTACIÓN DEL PROGRAMA
+
+DESARROLLADOR — 2:43 a 3:03 (20 segundos)
+Para el programa separamos las responsabilidades en dos clases. AnalizadorDeArchivo se encarga de localizar, leer y procesar el documento; Main construye la ventana y responde a las acciones del usuario. Así, la lógica del análisis queda independiente de la presentación gráfica.
+
+DESARROLLADOR — 3:03 a 3:22 (19 segundos)
+Dentro de AnalizadorDeArchivo guardamos la referencia al archivo, el texto leído, el total de palabras y una bandera llamada archivoListo. El constructor verifica si el archivo existe, primero en la ruta indicada y después dentro de los recursos del paquete. Si no puede localizarlo, controla el problema mediante IOException y deja el indicador en falso.
+
+NARRADOR — 3:22 a 3:41 (19 segundos)
+Cuando el archivo está disponible, procesarArchivo lo abre con FileReader y BufferedReader. Después lee cada línea, la agrega al contenido completo y separa sus palabras usando los espacios. Solo cuenta los fragmentos que no están vacíos, por lo que los espacios consecutivos o las líneas en blanco no aumentan el resultado.
+
+DESARROLLADOR — 3:41 a 3:57 (16 segundos)
+Por otro lado, Main crea una ventana con un botón, una etiqueta y un área de texto que no se puede editar. Al presionar el botón, el ActionListener crea el analizador, procesa el archivo y actualiza la etiqueta con el total de palabras y el área central con el texto leído.
+
+5. RESULTADOS
+
+EDITOR — 3:57 a 4:09 (12 segundos)
+Para probarlo utilizamos el archivo prueba.txt, que contenía la frase: “Esto es una prueba de la practica 11”. El programa mostró el contenido en la ventana y obtuvo un total de ocho palabras.
+
+DIAGRAMADOR — 4:09 a 4:18 (9 segundos)
+Las evidencias incluyen la interfaz en ejecución, los diagramas de clases y cardinalidad, el diagrama de secuencia y los diagramas de flujo del constructor, del procesamiento y del evento del botón.
+
+6. CONCLUSIONES Y DESPEDIDA
+
+NARRADOR — 4:18 a 4:25 (7 segundos)
+En conclusión, cumplimos los objetivos: comparamos las respuestas de IA y construimos una aplicación que lee, procesa y muestra archivos de forma organizada. Gracias por su atención.
