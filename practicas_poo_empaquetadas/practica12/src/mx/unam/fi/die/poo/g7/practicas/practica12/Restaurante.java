@@ -1,26 +1,6 @@
 package mx.unam.fi.die.poo.g7.practicas.practica12;
 
-/**
- * Clase principal que inicia la simulación del restaurante con hilos.
- *
- * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel
- *         Sulvaran
- * @version 1.0.0, POO UNAM FI 2026
- */
 public class Restaurante {
-
-    /**
-     * Constructor por defecto de la clase Restaurante.
-     */
-    public Restaurante() {
-    }
-
-    /**
-     * Método principal que crea la cola compartida e inicia los hilos
-     * de los clientes y los meseros.
-     *
-     * @param args Argumentos de la línea de comandos.
-     */
     public static void main(String[] args) {
         ColaPedidos cola = new ColaPedidos();
 
