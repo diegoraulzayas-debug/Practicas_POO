@@ -1,46 +1,47 @@
 package mx.unam.fi.die.poo.g7.practicas.practica12;
 
 /**
- * Representa un pedido realizado por un cliente en el restaurante.
+ * Representa un pedido o comanda emitido por un cliente en el restaurante.
+ * <p>
+ * Modela la unidad de información intercambiada entre productores ({@link Cliente})
+ * y consumidores ({@link Mesero}) a través del búfer compartido ({@link ColaPedidos}).
+ * </p>
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
  * @version 1.0.0, POO UNAM FI 2026
  */
 public class Pedido {
 
-    // Atributos encapsulados del pedido
-    /** Identificador del cliente que realiza el pedido. */
+    /** Identificador numérico del cliente que emitió la comanda. */
     private int cliente;
 
-    /** Nombre del platillo solicitado. */
+    /** Nombre o descripción del platillo solicitado en el restaurante. */
     private String platillo;
 
     /**
-     * Constructor que inicializa el pedido con el cliente y el platillo.
+     * Constructor que inicializa el pedido con el identificador del cliente y el platillo seleccionado.
      *
-     * @param cliente Identificador del cliente.
-     * @param platillo Nombre del platillo.
+     * @param cliente  Identificador del cliente solicitante.
+     * @param platillo Nombre del platillo solicitado.
      */
-    // Constructor para asignar el cliente y el platillo solicitado
     public Pedido(int cliente, String platillo) {
         this.cliente = cliente;
         this.platillo = platillo;
     }
 
-    // Getters para consultar los datos del pedido
     /**
-     * Devuelve el identificador del cliente.
+     * Obtiene el identificador del cliente que realizó este pedido.
      *
-     * @return Identificador del cliente.
+     * @return Identificador entero del cliente.
      */
     public int getCliente() {
         return cliente;
     }
 
     /**
-     * Devuelve el platillo solicitado.
+     * Obtiene la denominación del platillo solicitado.
      *
-     * @return Nombre del platillo.
+     * @return Cadena que representa el nombre del platillo.
      */
     public String getPlatillo() {
         return platillo;

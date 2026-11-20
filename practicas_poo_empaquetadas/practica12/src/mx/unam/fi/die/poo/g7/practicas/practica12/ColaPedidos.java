@@ -4,39 +4,43 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Cola compartida de pedidos controlada con métodos sincronizados.
+ * Estructura de datos sincronizada que representa el búfer o cola compartida de pedidos
+ * en el restaurante bajo el patrón Productor-Consumidor.
+ * <p>
+ * Los métodos de inserción y retiro son sincronizados con el monitor intrínseco
+ * de la instancia (bloqueo a nivel de método mediante {@code synchronized}),
+ * garantizando la consistencia y ausencia de condiciones de carrera (race conditions)
+ * entre los hilos de clientes (productores) y meseros (consumidores).
+ * </p>
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
  * @version 1.0.0, POO UNAM FI 2026
  */
 public class ColaPedidos {
 
-    // Atributo: Cola FIFO que almacena los pedidos en orden de llegada
-    /** Cola donde se almacenan los pedidos en orden de llegada. */
+    /** Cola interna de pedidos basada en FIFO (First-In, First-Out). */
     private Queue<Pedido> pedidos = new LinkedList<>();
 
     /**
-     * Constructor por defecto de la cola de pedidos.
+     * Constructor por defecto de la cola sincronizada de pedidos.
      */
     public ColaPedidos() {
     }
 
     /**
-     * Agrega un pedido a la cola compartida de manera sincronizada.
+     * Agrega un pedido a la cola compartida de manera sincronizada y segura para hilos.
      *
-     * @param pedido Pedido realizado por un cliente.
+     * @param pedido Instancia de {@link Pedido} emitido por un cliente que ingresa a la cola.
      */
-    // Método sincronizado para que un cliente agregue su pedido sin colisiones entre hilos
     public synchronized void agregarPedido(Pedido pedido) {
         pedidos.add(pedido);
     }
 
     /**
-     * Toma y retira el siguiente pedido disponible en la cola de manera sincronizada.
+     * Extrae y retira el siguiente pedido disponible al frente de la cola de manera sincronizada.
      *
-     * @return El siguiente {@link Pedido} en la cola, o {@code null} si está vacía.
+     * @return El siguiente objeto {@link Pedido} en la cola FIFO, o {@code null} si la cola está vacía.
      */
-    // Método sincronizado para que un mesero tome el primer pedido disponible en la cola
     public synchronized Pedido tomarPedido() {
         return pedidos.poll();
     }

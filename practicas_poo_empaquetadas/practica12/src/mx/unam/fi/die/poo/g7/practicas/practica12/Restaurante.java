@@ -1,7 +1,13 @@
 package mx.unam.fi.die.poo.g7.practicas.practica12;
 
 /**
- * Clase principal que inicia la simulación del restaurante con hilos.
+ * Clase controladora principal (Driver) que configura y orquesta la simulación
+ * concurrente del restaurante utilizando hilos de ejecución independientes.
+ * <p>
+ * Instancia la cola compartida de pedidos, crea 4 tareas de clientes productores y 2
+ * tareas de meseros consumidores, asignándolas a objetos {@link Thread} e iniciando
+ * su concurrencia mediante {@link Thread#start()}.
+ * </p>
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
  * @version 1.0.0, POO UNAM FI 2026
@@ -9,16 +15,19 @@ package mx.unam.fi.die.poo.g7.practicas.practica12;
 public class Restaurante {
 
     /**
-     * Constructor por defecto de la clase Restaurante.
+     * Constructor por defecto de la clase de prueba controladora {@link Restaurante}.
      */
     public Restaurante() {
     }
 
     /**
-     * Método principal que crea la cola compartida e inicia los hilos
-     * de los clientes y los meseros.
+     * Punto de entrada principal a la aplicación.
+     * <p>
+     * Inicializa los recursos compartidos, crea los hilos de clientes y meseros,
+     * y lanza la ejecución asíncrona concurrente.
+     * </p>
      *
-     * @param args Argumentos de la línea de comandos.
+     * @param args Argumentos recibidos desde la línea de comandos (no utilizados).
      */
     public static void main(String[] args) {
         // 1. Crear la cola compartida de pedidos (controla el orden de atención)
