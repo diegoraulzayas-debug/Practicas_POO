@@ -1,47 +1,46 @@
 package mx.unam.fi.die.poo.g7.practicas.practica12;
 
 /**
- * Representa un pedido o comanda emitido por un cliente en el restaurante.
- * <p>
- * Modela la unidad de información intercambiada entre productores ({@link Cliente})
- * y consumidores ({@link Mesero}) a través del búfer compartido ({@link ColaPedidos}).
- * </p>
+ * MODELO (MVC): Representa los datos de un pedido realizado por un cliente en el restaurante.
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
  * @version 1.0.0, POO UNAM FI 2026
  */
 public class Pedido {
 
-    /** Identificador numérico del cliente que emitió la comanda. */
+    // Atributos encapsulados del pedido
+    /** Identificador del cliente que realiza el pedido. */
     private int cliente;
 
-    /** Nombre o descripción del platillo solicitado en el restaurante. */
+    /** Nombre del platillo solicitado. */
     private String platillo;
 
     /**
-     * Constructor que inicializa el pedido con el identificador del cliente y el platillo seleccionado.
+     * Constructor que inicializa el pedido con el cliente y el platillo.
      *
-     * @param cliente  Identificador del cliente solicitante.
-     * @param platillo Nombre del platillo solicitado.
+     * @param cliente Identificador del cliente.
+     * @param platillo Nombre del platillo.
      */
+    // Constructor para asignar el cliente y el platillo solicitado
     public Pedido(int cliente, String platillo) {
         this.cliente = cliente;
         this.platillo = platillo;
     }
 
+    // Getters para consultar los datos del pedido
     /**
-     * Obtiene el identificador del cliente que realizó este pedido.
+     * Devuelve el identificador del cliente.
      *
-     * @return Identificador entero del cliente.
+     * @return Identificador del cliente.
      */
     public int getCliente() {
         return cliente;
     }
 
     /**
-     * Obtiene la denominación del platillo solicitado.
+     * Devuelve el platillo solicitado.
      *
-     * @return Cadena que representa el nombre del platillo.
+     * @return Nombre del platillo.
      */
     public String getPlatillo() {
         return platillo;
