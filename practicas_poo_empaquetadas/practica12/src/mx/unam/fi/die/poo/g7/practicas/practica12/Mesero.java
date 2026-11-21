@@ -23,6 +23,16 @@ public class Mesero implements Runnable {
     private VistaRestaurante vista;
 
     /**
+     * Constructor que inicializa al mesero con su nombre y la cola compartida.
+     *
+     * @param nombre Nombre del mesero.
+     * @param cola   Cola compartida de pedidos (Modelo).
+     */
+    public Mesero(String nombre, ColaPedidos cola) {
+        this(nombre, cola, new VistaRestaurante());
+    }
+
+    /**
      * Constructor que inicializa al mesero con su nombre, la cola compartida y la vista.
      *
      * @param nombre Nombre del mesero.

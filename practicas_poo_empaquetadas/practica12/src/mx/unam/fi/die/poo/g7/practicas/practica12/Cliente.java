@@ -24,6 +24,16 @@ public class Cliente implements Runnable {
     private VistaRestaurante vista;
 
     /**
+     * Constructor que inicializa al cliente con su id y la cola compartida.
+     *
+     * @param id   Identificador del cliente.
+     * @param cola Cola compartida de pedidos (Modelo).
+     */
+    public Cliente(int id, ColaPedidos cola) {
+        this(id, cola, new VistaRestaurante());
+    }
+
+    /**
      * Constructor que inicializa al cliente con su id, la cola compartida y la
      * vista.
      *

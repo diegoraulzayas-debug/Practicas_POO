@@ -1,19 +1,8 @@
 {
     "java.project.sourcePaths": [
-        "practicas_poo_empaquetadas/practica1/src",
-        "practicas_poo_empaquetadas/practica2/src",
-        "practicas_poo_empaquetadas/practica3/src",
-        "practicas_poo_empaquetadas/practica4/src",
-        "practicas_poo_empaquetadas/practica5/src",
-        "practicas_poo_empaquetadas/practica6/src",
-        "practicas_poo_empaquetadas/practica7/src",
-        "practicas_poo_empaquetadas/practica8/src",
-        "practicas_poo_empaquetadas/practica9/src",
         "practicas_poo_empaquetadas/practica10/src",
         "practicas_poo_empaquetadas/practica11/src",
         "practicas_poo_empaquetadas/practica12/src",
-        "practicas_poo_empaquetadas/proyecto1/src",
-        "Proyecto_2/poo/g7/e0/py2/src",
         "Practica_12_MVC"
     ]
 }
