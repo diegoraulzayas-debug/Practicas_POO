@@ -4,9 +4,11 @@ import java.util.Random;
 
 /**
  * Representa a un cliente que realiza un pedido en un hilo de ejecución,
- * actualizando el Modelo ({@link ColaPedidos}) y notificando a la Vista ({@link VistaRestaurante}).
+ * actualizando el Modelo ({@link ColaPedidos}) y notificando a la Vista
+ * ({@link VistaRestaurante}).
  *
- * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
+ * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel
+ *         Sulvaran
  * @version 1.0.0, POO UNAM FI 2026
  */
 public class Cliente implements Runnable {
@@ -22,10 +24,11 @@ public class Cliente implements Runnable {
     private VistaRestaurante vista;
 
     /**
-     * Constructor que inicializa al cliente con su id, la cola compartida y la vista.
+     * Constructor que inicializa al cliente con su id, la cola compartida y la
+     * vista.
      *
-     * @param id Identificador del cliente.
-     * @param cola Cola compartida de pedidos (Modelo).
+     * @param id    Identificador del cliente.
+     * @param cola  Cola compartida de pedidos (Modelo).
      * @param vista Vista del restaurante para mostrar mensajes.
      */
     // Constructor del cliente
@@ -42,7 +45,7 @@ public class Cliente implements Runnable {
     // Tarea concurrente del cliente
     public void run() {
         Random rand = new Random();
-        String[] platillos = {"Tacos", "Enchiladas", "Pozole", "Hamburguesa"};
+        String[] platillos = { "Tacos", "Enchiladas", "Pozole", "Hamburguesa" };
 
         // Se notifica a la Vista que el cliente llegó
         vista.mostrarLlegadaCliente(id);
