@@ -1,13 +1,8 @@
 package mx.unam.fi.die.poo.g7.practicas.practica12;
 
 /**
- * Clase controladora principal (Driver) que configura y orquesta la simulación
- * concurrente del restaurante utilizando hilos de ejecución independientes.
- * <p>
- * Instancia la cola compartida de pedidos, crea 4 tareas de clientes productores y 2
- * tareas de meseros consumidores, asignándolas a objetos {@link Thread} e iniciando
- * su concurrencia mediante {@link Thread#start()}.
- * </p>
+ * Clase principal que ensambla el Modelo ({@link ColaPedidos}), la Vista ({@link VistaRestaurante})
+ * y el Controlador ({@link ControladorRestaurante}) para iniciar la simulación del restaurante con hilos.
  *
  * @author Julius Carlos, Diego Zayas, Emanuel Porto, Yahir Romero, Axel Sulvaran
  * @version 1.0.0, POO UNAM FI 2026
@@ -15,41 +10,28 @@ package mx.unam.fi.die.poo.g7.practicas.practica12;
 public class Restaurante {
 
     /**
-     * Constructor por defecto de la clase de prueba controladora {@link Restaurante}.
+     * Constructor por defecto de la clase Restaurante.
      */
     public Restaurante() {
     }
 
     /**
-     * Punto de entrada principal a la aplicación.
-     * <p>
-     * Inicializa los recursos compartidos, crea los hilos de clientes y meseros,
-     * y lanza la ejecución asíncrona concurrente.
-     * </p>
+     * Método principal que instancia el Modelo, la Vista y el Controlador (Patrón MVC)
+     * e inicia la simulación concurrente del restaurante.
      *
-     * @param args Argumentos recibidos desde la línea de comandos (no utilizados).
+     * @param args Argumentos de la línea de comandos.
      */
     public static void main(String[] args) {
-        // 1. Crear la cola compartida de pedidos (controla el orden de atención)
+        // 1. Crear el Modelo (cola compartida de pedidos)
         ColaPedidos cola = new ColaPedidos();
 
-        // 2. Crear los hilos para los clientes que llegan al restaurante
-        Thread c1 = new Thread(new Cliente(1, cola));
-        Thread c2 = new Thread(new Cliente(2, cola));
-        Thread c3 = new Thread(new Cliente(3, cola));
-        Thread c4 = new Thread(new Cliente(4, cola));
+        // 2. Crear la Vista (encargada de toda la salida en consola)
+        VistaRestaurante vista = new VistaRestaurante();
 
-        // 3. Crear los hilos para los meseros que atenderán los pedidos
-        Thread m1 = new Thread(new Mesero("Mesero 1", cola));
-        Thread m2 = new Thread(new Mesero("Mesero 2", cola));
+        // 3. Crear el Controlador (conecta el Modelo y la Vista con los hilos)
+        ControladorRestaurante controlador = new ControladorRestaurante(cola, vista);
 
-        // 4. Iniciar los hilos de los clientes y meseros de forma concurrente
-        c1.start();
-        c2.start();
-        c3.start();
-        c4.start();
-
-        m1.start();
-        m2.start();
+        // 4. Iniciar la simulación concurrente
+        controlador.iniciarSimulacion();
     }
 }
